@@ -391,27 +391,27 @@ start_test() {
     step_7_test_evaluation "$flagr_host"
     step_8_test_preload "$flagr_host"
     step_9_test_export "$flagr_host"
-    step_10_test_crud_tag "$flagr_host"
-    step_11_test_tag_batch_evaluation "$flagr_host"
-    step_12_test_tag_operator_batch_evaluation "$flagr_host"
+	step_10_test_crud_tag "$flagr_host"
+	step_11_test_tag_batch_evaluation "$flagr_host"
+	step_12_test_tag_operator_batch_evaluation "$flagr_host"
+	step_13_test_datar "$flagr_host"
 }
 
 
 
 step_13_test_datar() {
-    flagr_url=$1:18000/api/v1
+	flagr_url=$1:18000/api/v1
 
-    ################################################
-    # Test Datar summary and flag summary endpoints
-    ################################################
-    echo "  Testing Datar endpoints..."
+	# Skip if the service doesn't have Datar enabled.
+	resp=$(curl -s -o /dev/null -w "%{http_code}" "$flagr_url/datar/summary")
+	[ "$resp" = "503" ] && return 0
 
-    # Wait for flush to complete (interval is 500ms).
-    for i in $(seq 1 20); do
-        resp=$(curl -s -o /dev/null -w "%{http_code}" "$flagr_url/datar/summary")
-        [ "$resp" = "200" ] && break
-        sleep 1
-    done
+	# Wait for flush to complete (interval is 500ms).
+	for i in $(seq 1 20); do
+		resp=$(curl -s -o /dev/null -w "%{http_code}" "$flagr_url/datar/summary")
+		[ "$resp" = "200" ] && break
+		sleep 1
+	done
 
     # /datar/summary should include flag 1 with positive eval count.
     shakedown GET "$flagr_url"/datar/summary
@@ -433,28 +433,15 @@ step_13_test_datar() {
     matches '"count":[1-9]'
 }
 
-start_test_datar() {
-    flagr_host=$1
-    echo -e "\e[32m                \e[0m"
-    echo -e "\e[32m===========================================\e[0m"
-    echo -e "\e[32mStart testing Datar for $1\e[0m"
-    echo -e "\e[32m===========================================\e[0m"
-
-    /vendor/wait-for-it/wait-for-it.sh "$flagr_host:18000" -t 30
-
-    step_13_test_datar "$flagr_host"
-}
-
 start() {
-    start_test flagr_with_sqlite
-    start_test_datar flagr_with_sqlite
-    start_test flagr_with_mysql
-    start_test flagr_with_mysql8
-    start_test flagr_with_postgres9
-    start_test flagr_with_postgres13
+	start_test flagr_with_sqlite
+	start_test flagr_with_mysql
+	start_test flagr_with_mysql8
+	start_test flagr_with_postgres9
+	start_test flagr_with_postgres13
 
-    # for backward compatibility with checkr/flagr
-    start_test checkr_flagr_with_sqlite
+	# for backward compatibility with checkr/flagr
+	start_test checkr_flagr_with_sqlite
 }
 
 
