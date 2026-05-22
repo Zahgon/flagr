@@ -1664,9 +1664,6 @@ func init() {
     "datarSegmentEntry": {
       "type": "object",
       "properties": {
-        "description": {
-          "type": "string"
-        },
         "evalCount": {
           "type": "integer",
           "format": "int64"
@@ -3968,9 +3965,6 @@ func init() {
     "datarSegmentEntry": {
       "type": "object",
       "properties": {
-        "description": {
-          "type": "string"
-        },
         "evalCount": {
           "type": "integer",
           "format": "int64"
