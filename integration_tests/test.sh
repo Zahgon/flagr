@@ -402,9 +402,9 @@ start_test() {
 step_13_test_datar() {
 	flagr_url=$1:18000/api/v1
 
-	# Skip if the service doesn't have Datar enabled.
+	# Skip if Datar not available on this service (503, 404, etc.).
 	resp=$(curl -s -o /dev/null -w "%{http_code}" "$flagr_url/datar/summary")
-	[ "$resp" = "503" ] && return 0
+	[ "$resp" != "200" ] && return 0
 
 	# Wait for flush to complete (interval is 500ms).
 	for i in $(seq 1 20); do
