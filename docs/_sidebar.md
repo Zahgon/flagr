@@ -8,6 +8,7 @@
 - Server Configuration
     - [Env](flagr_env.md)
     - [Notifications](flagr_notifications.md)
+    - [Datar](flagr_datar.md)
 - Client SDKs
     - [Ruby SDK 🔗](https://github.com/openflagr/rbflagr)
     - [Go SDK 🔗](https://github.com/openflagr/goflagr)
