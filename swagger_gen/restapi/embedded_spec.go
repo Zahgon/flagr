@@ -1653,10 +1653,9 @@ func init() {
           }
         },
         "trafficByVariant": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "integer",
-            "format": "int64"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/datarVariantEntry"
           }
         }
       }
@@ -1664,7 +1663,7 @@ func init() {
     "datarSegmentEntry": {
       "type": "object",
       "properties": {
-        "evalCount": {
+        "count": {
           "type": "integer",
           "format": "int64"
         },
@@ -1708,6 +1707,19 @@ func init() {
           "items": {
             "$ref": "#/definitions/datarSummaryFlag"
           }
+        }
+      }
+    },
+    "datarVariantEntry": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "variantID": {
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -3954,10 +3966,9 @@ func init() {
           }
         },
         "trafficByVariant": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "integer",
-            "format": "int64"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/datarVariantEntry"
           }
         }
       }
@@ -3965,7 +3976,7 @@ func init() {
     "datarSegmentEntry": {
       "type": "object",
       "properties": {
-        "evalCount": {
+        "count": {
           "type": "integer",
           "format": "int64"
         },
@@ -4009,6 +4020,19 @@ func init() {
           "items": {
             "$ref": "#/definitions/datarSummaryFlag"
           }
+        }
+      }
+    },
+    "datarVariantEntry": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "variantID": {
+          "type": "integer",
+          "format": "int64"
         }
       }
     },

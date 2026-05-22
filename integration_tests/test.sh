@@ -426,10 +426,11 @@ step_13_test_datar() {
     content_type 'application/json'
     matches '"flagID":1'
     matches '"trafficByVariant"'
+    matches '"variantID":'
     matches '"trafficBySegment"'
-    matches '"trafficByDay"'
     matches '"segmentID":'
-    matches '"evalCount":[1-9]'
+    matches '"trafficByDay"'
+    matches '"count":[1-9]'
 }
 
 start_test_datar() {
