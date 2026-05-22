@@ -408,13 +408,8 @@ step_13_test_datar() {
 
     # Wait for flush to complete (interval is 500ms).
     for i in $(seq 1 20); do
-        resp=$(curl -s -w "%{http_code}" -o /tmp/datar_resp.txt "$flagr_url/datar/summary")
-        if [ "$resp" = "200" ]; then
-            break
-        fi
-        echo "  datar/summary returned $resp at attempt $i"
-        cat /tmp/datar_resp.txt 2>/dev/null
-        echo ""
+        resp=$(curl -s -o /dev/null -w "%{http_code}" "$flagr_url/datar/summary")
+        [ "$resp" = "200" ] && break
         sleep 1
     done
 
