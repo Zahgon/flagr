@@ -16,17 +16,20 @@ type GetExportSqliteHandlerFunc func(GetExportSqliteParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn GetExportSqliteHandlerFunc) Handle(params GetExportSqliteParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// GetExportSqliteHandler interface for that can handle valid get export sqlite params
+	return *new(middleware.Responder)
 }
 
-// GetExportSqliteHandler interface for that can handle valid get export sqlite params
 type GetExportSqliteHandler interface {
 	Handle(GetExportSqliteParams) middleware.Responder
 }
 
 // NewGetExportSqlite creates a new http.Handler for the get export sqlite operation
 func NewGetExportSqlite(ctx *middleware.Context, handler GetExportSqliteHandler) *GetExportSqlite {
-	return &GetExportSqlite{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type GetExportSqlite struct {
 }
 
 func (o *GetExportSqlite) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewGetExportSqliteParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

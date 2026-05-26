@@ -7,13 +7,8 @@ package models
 
 import (
 	"context"
-	stderrors "errors"
-	"strconv"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // Flag flag
@@ -70,344 +65,93 @@ type Flag struct {
 }
 
 // Validate validates this flag
-func (m *Flag) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateDataRecordsEnabled(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateEnabled(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateKey(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSegments(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTags(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateUpdatedAt(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVariants(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
+func (m *Flag) Validate(formats strfmt.Registry) error { _ = "STUB: not implemented"; return nil }
 
 func (m *Flag) validateDataRecordsEnabled(formats strfmt.Registry) error {
-
-	if err := validate.Required("dataRecordsEnabled", "body", m.DataRecordsEnabled); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Flag) validateDescription(formats strfmt.Registry) error {
-
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("description", "body", *m.Description, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Flag) validateEnabled(formats strfmt.Registry) error {
-
-	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
-func (m *Flag) validateID(formats strfmt.Registry) error {
-	if swag.IsZero(m.ID) { // not required
-		return nil
-	}
+func (m *Flag) validateID(formats strfmt.Registry) error { _ = "STUB: not implemented"; return nil }
 
-	if err := validate.MinimumInt("id", "body", m.ID, 1, false); err != nil {
-		return err
-	}
+// not required
 
-	return nil
-}
+func (m *Flag) validateKey(formats strfmt.Registry) error { _ = "STUB: not implemented"; return nil }
 
-func (m *Flag) validateKey(formats strfmt.Registry) error {
-	if swag.IsZero(m.Key) { // not required
-		return nil
-	}
-
-	if err := validate.MinLength("key", "body", m.Key, 1); err != nil {
-		return err
-	}
-
-	return nil
-}
+// not required
 
 func (m *Flag) validateSegments(formats strfmt.Registry) error {
-	if swag.IsZero(m.Segments) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.Segments); i++ {
-		if swag.IsZero(m.Segments[i]) { // not required
-			continue
-		}
-
-		if m.Segments[i] != nil {
-			if err := m.Segments[i].Validate(formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
+	// not required
 }
 
-func (m *Flag) validateTags(formats strfmt.Registry) error {
-	if swag.IsZero(m.Tags) { // not required
-		return nil
-	}
+// not required
 
-	for i := 0; i < len(m.Tags); i++ {
-		if swag.IsZero(m.Tags[i]) { // not required
-			continue
-		}
+func (m *Flag) validateTags(formats strfmt.Registry) error { _ = "STUB: not implemented"; return nil }
 
-		if m.Tags[i] != nil {
-			if err := m.Tags[i].Validate(formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
-				}
+// not required
 
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
+// not required
 
 func (m *Flag) validateUpdatedAt(formats strfmt.Registry) error {
-	if swag.IsZero(m.UpdatedAt) { // not required
-		return nil
-	}
-
-	if err := validate.FormatOf("updatedAt", "body", "date-time", m.UpdatedAt.String(), formats); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
+	// not required
 }
 
 func (m *Flag) validateVariants(formats strfmt.Registry) error {
-	if swag.IsZero(m.Variants) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.Variants); i++ {
-		if swag.IsZero(m.Variants[i]) { // not required
-			continue
-		}
-
-		if m.Variants[i] != nil {
-			if err := m.Variants[i].Validate(formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("variants" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("variants" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
+	// not required
 }
+
+// not required
 
 // ContextValidate validate this flag based on the context it is used
 func (m *Flag) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateID(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateSegments(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateTags(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateVariants(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Flag) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
-
-	if err := validate.ReadOnly(ctx, "id", "body", m.ID); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Flag) contextValidateSegments(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Segments); i++ {
-
-		if m.Segments[i] != nil {
-
-			if swag.IsZero(m.Segments[i]) { // not required
-				return nil
-			}
-
-			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// not required
 
 func (m *Flag) contextValidateTags(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Tags); i++ {
-
-		if m.Tags[i] != nil {
-
-			if swag.IsZero(m.Tags[i]) { // not required
-				return nil
-			}
-
-			if err := m.Tags[i].ContextValidate(ctx, formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// not required
 
 func (m *Flag) contextValidateVariants(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Variants); i++ {
-
-		if m.Variants[i] != nil {
-
-			if swag.IsZero(m.Variants[i]) { // not required
-				return nil
-			}
-
-			if err := m.Variants[i].ContextValidate(ctx, formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("variants" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("variants" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// not required
 
 // MarshalBinary interface implementation
-func (m *Flag) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
-}
+func (m *Flag) MarshalBinary() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalBinary interface implementation
-func (m *Flag) UnmarshalBinary(b []byte) error {
-	var res Flag
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *Flag) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

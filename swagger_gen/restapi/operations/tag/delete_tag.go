@@ -16,17 +16,20 @@ type DeleteTagHandlerFunc func(DeleteTagParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn DeleteTagHandlerFunc) Handle(params DeleteTagParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// DeleteTagHandler interface for that can handle valid delete tag params
+	return *new(middleware.Responder)
 }
 
-// DeleteTagHandler interface for that can handle valid delete tag params
 type DeleteTagHandler interface {
 	Handle(DeleteTagParams) middleware.Responder
 }
 
 // NewDeleteTag creates a new http.Handler for the delete tag operation
 func NewDeleteTag(ctx *middleware.Context, handler DeleteTagHandler) *DeleteTag {
-	return &DeleteTag{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type DeleteTag struct {
 }
 
 func (o *DeleteTag) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewDeleteTagParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

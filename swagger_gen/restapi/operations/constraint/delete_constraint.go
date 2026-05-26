@@ -16,17 +16,20 @@ type DeleteConstraintHandlerFunc func(DeleteConstraintParams) middleware.Respond
 
 // Handle executing the request and returning a response
 func (fn DeleteConstraintHandlerFunc) Handle(params DeleteConstraintParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// DeleteConstraintHandler interface for that can handle valid delete constraint params
+	return *new(middleware.Responder)
 }
 
-// DeleteConstraintHandler interface for that can handle valid delete constraint params
 type DeleteConstraintHandler interface {
 	Handle(DeleteConstraintParams) middleware.Responder
 }
 
 // NewDeleteConstraint creates a new http.Handler for the delete constraint operation
 func NewDeleteConstraint(ctx *middleware.Context, handler DeleteConstraintHandler) *DeleteConstraint {
-	return &DeleteConstraint{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type DeleteConstraint struct {
 }
 
 func (o *DeleteConstraint) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewDeleteConstraintParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

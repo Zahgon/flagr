@@ -6,16 +6,10 @@ package segment
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	stderrors "errors"
-	"io"
 	"net/http"
 
-	"github.com/go-openapi/errors"
-	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 
 	"github.com/openflagr/flagr/swagger_gen/models"
 )
@@ -24,8 +18,8 @@ import (
 //
 // There are no default values defined in the spec.
 func NewCreateSegmentParams() CreateSegmentParams {
-
-	return CreateSegmentParams{}
+	_ = "STUB: not implemented"
+	return *new(CreateSegmentParams)
 }
 
 // CreateSegmentParams contains all the bound params for the create segment operation
@@ -55,79 +49,23 @@ type CreateSegmentParams struct {
 //
 // To ensure default values, the struct must have been initialized with NewCreateSegmentParams() beforehand.
 func (o *CreateSegmentParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
-	var res []error
-
-	o.HTTPRequest = r
-
-	if runtime.HasBody(r) {
-		defer func() {
-			_ = r.Body.Close()
-		}()
-		var body models.CreateSegmentRequest
-		if err := route.Consumer.Consume(r.Body, &body); err != nil {
-			if stderrors.Is(err, io.EOF) {
-				res = append(res, errors.Required("body", "body", ""))
-			} else {
-				res = append(res, errors.NewParseError("body", "body", "", err))
-			}
-		} else {
-			// validate body object
-			if err := body.Validate(route.Formats); err != nil {
-				res = append(res, err)
-			}
-
-			ctx := validate.WithOperationRequest(r.Context())
-			if err := body.ContextValidate(ctx, route.Formats); err != nil {
-				res = append(res, err)
-			}
-
-			if len(res) == 0 {
-				o.Body = &body
-			}
-		}
-	} else {
-		res = append(res, errors.Required("body", "body", ""))
-	}
-
-	rFlagID, rhkFlagID, _ := route.Params.GetOK("flagID")
-	if err := o.bindFlagID(rFlagID, rhkFlagID, route.Formats); err != nil {
-		res = append(res, err)
-	}
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// validate body object
 
 // bindFlagID binds and validates parameter FlagID from path.
 func (o *CreateSegmentParams) bindFlagID(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: true
-	// Parameter is provided by construction from the route
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("flagID", "path", "int64", raw)
-	}
-	o.FlagID = value
-
-	if err := o.validateFlagID(formats); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// Required: true
+// Parameter is provided by construction from the route
+
 // validateFlagID carries out validations for parameter FlagID
 func (o *CreateSegmentParams) validateFlagID(formats strfmt.Registry) error {
-
-	if err := validate.MinimumInt("flagID", "path", o.FlagID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }

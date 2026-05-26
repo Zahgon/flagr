@@ -9,10 +9,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // Constraint constraint
@@ -44,41 +41,12 @@ type Constraint struct {
 }
 
 // Validate validates this constraint
-func (m *Constraint) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateOperator(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateProperty(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateValue(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
+func (m *Constraint) Validate(formats strfmt.Registry) error { _ = "STUB: not implemented"; return nil }
 
 func (m *Constraint) validateID(formats strfmt.Registry) error {
-	if swag.IsZero(m.ID) { // not required
-		return nil
-	}
-
-	if err := validate.MinimumInt("id", "body", m.ID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
+	// not required
 }
 
 var constraintTypeOperatorPropEnum []any
@@ -134,93 +102,40 @@ const (
 
 // prop value enum
 func (m *Constraint) validateOperatorEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, constraintTypeOperatorPropEnum, true); err != nil {
-		return err
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Constraint) validateOperator(formats strfmt.Registry) error {
-
-	if err := validate.Required("operator", "body", m.Operator); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("operator", "body", *m.Operator, 1); err != nil {
-		return err
-	}
-
-	// value enum
-	if err := m.validateOperatorEnum("operator", "body", *m.Operator); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// value enum
+
 func (m *Constraint) validateProperty(formats strfmt.Registry) error {
-
-	if err := validate.Required("property", "body", m.Property); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("property", "body", *m.Property, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Constraint) validateValue(formats strfmt.Registry) error {
-
-	if err := validate.Required("value", "body", m.Value); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("value", "body", *m.Value, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // ContextValidate validate this constraint based on the context it is used
 func (m *Constraint) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateID(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Constraint) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
-
-	if err := validate.ReadOnly(ctx, "id", "body", m.ID); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *Constraint) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
-}
+func (m *Constraint) MarshalBinary() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalBinary interface implementation
-func (m *Constraint) UnmarshalBinary(b []byte) error {
-	var res Constraint
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *Constraint) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

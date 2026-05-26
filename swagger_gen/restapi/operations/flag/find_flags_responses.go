@@ -30,36 +30,26 @@ type FindFlagsOK struct {
 }
 
 // NewFindFlagsOK creates FindFlagsOK with default headers values
-func NewFindFlagsOK() *FindFlagsOK {
-
-	return &FindFlagsOK{}
-}
+func NewFindFlagsOK() *FindFlagsOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the find flags o k response
 func (o *FindFlagsOK) WithPayload(payload []*models.Flag) *FindFlagsOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find flags o k response
-func (o *FindFlagsOK) SetPayload(payload []*models.Flag) {
-	o.Payload = payload
-}
+func (o *FindFlagsOK) SetPayload(payload []*models.Flag) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *FindFlagsOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	payload := o.Payload
-	if payload == nil {
-		// return empty array
-		payload = make([]*models.Flag, 0, 50)
-	}
-
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// return empty array
+
+// let the recovery middleware deal with this
 
 /*
 FindFlagsDefault generic error response
@@ -76,46 +66,30 @@ type FindFlagsDefault struct {
 }
 
 // NewFindFlagsDefault creates FindFlagsDefault with default headers values
-func NewFindFlagsDefault(code int) *FindFlagsDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &FindFlagsDefault{
-		_statusCode: code,
-	}
-}
+func NewFindFlagsDefault(code int) *FindFlagsDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the find flags default response
 func (o *FindFlagsDefault) WithStatusCode(code int) *FindFlagsDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the find flags default response
-func (o *FindFlagsDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *FindFlagsDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the find flags default response
 func (o *FindFlagsDefault) WithPayload(payload *models.Error) *FindFlagsDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find flags default response
-func (o *FindFlagsDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *FindFlagsDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *FindFlagsDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

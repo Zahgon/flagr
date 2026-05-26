@@ -30,36 +30,30 @@ type PutDistributionsOK struct {
 }
 
 // NewPutDistributionsOK creates PutDistributionsOK with default headers values
-func NewPutDistributionsOK() *PutDistributionsOK {
-
-	return &PutDistributionsOK{}
-}
+func NewPutDistributionsOK() *PutDistributionsOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the put distributions o k response
 func (o *PutDistributionsOK) WithPayload(payload []*models.Distribution) *PutDistributionsOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the put distributions o k response
 func (o *PutDistributionsOK) SetPayload(payload []*models.Distribution) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *PutDistributionsOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	payload := o.Payload
-	if payload == nil {
-		// return empty array
-		payload = make([]*models.Distribution, 0, 50)
-	}
-
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// return empty array
+
+// let the recovery middleware deal with this
 
 /*
 PutDistributionsDefault generic error response
@@ -77,45 +71,36 @@ type PutDistributionsDefault struct {
 
 // NewPutDistributionsDefault creates PutDistributionsDefault with default headers values
 func NewPutDistributionsDefault(code int) *PutDistributionsDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &PutDistributionsDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the put distributions default response
 func (o *PutDistributionsDefault) WithStatusCode(code int) *PutDistributionsDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the put distributions default response
-func (o *PutDistributionsDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *PutDistributionsDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the put distributions default response
 func (o *PutDistributionsDefault) WithPayload(payload *models.Error) *PutDistributionsDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the put distributions default response
 func (o *PutDistributionsDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *PutDistributionsDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

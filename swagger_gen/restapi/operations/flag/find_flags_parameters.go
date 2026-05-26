@@ -8,25 +8,24 @@ package flag
 import (
 	"net/http"
 
-	"github.com/go-openapi/errors"
-	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 )
 
 // NewFindFlagsParams creates a new FindFlagsParams object
 //
 // There are no default values defined in the spec.
 func NewFindFlagsParams() FindFlagsParams {
+	_ = "STUB: not implemented"
+	return *
 
-	return FindFlagsParams{}
+	// FindFlagsParams contains all the bound params for the find flags operation
+	// typically these are obtained from a http.Request
+	//
+	// swagger:parameters findFlags
+	new(FindFlagsParams)
 }
 
-// FindFlagsParams contains all the bound params for the find flags operation
-// typically these are obtained from a http.Request
-//
-// swagger:parameters findFlags
 type FindFlagsParams struct {
 	// HTTP Request Object
 	HTTPRequest *http.Request `json:"-"`
@@ -82,244 +81,105 @@ type FindFlagsParams struct {
 //
 // To ensure default values, the struct must have been initialized with NewFindFlagsParams() beforehand.
 func (o *FindFlagsParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
-	var res []error
-
-	o.HTTPRequest = r
-	qs := runtime.Values(r.URL.Query())
-
-	qDeleted, qhkDeleted, _ := qs.GetOK("deleted")
-	if err := o.bindDeleted(qDeleted, qhkDeleted, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qDescription, qhkDescription, _ := qs.GetOK("description")
-	if err := o.bindDescription(qDescription, qhkDescription, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qDescriptionLike, qhkDescriptionLike, _ := qs.GetOK("description_like")
-	if err := o.bindDescriptionLike(qDescriptionLike, qhkDescriptionLike, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qEnabled, qhkEnabled, _ := qs.GetOK("enabled")
-	if err := o.bindEnabled(qEnabled, qhkEnabled, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qKey, qhkKey, _ := qs.GetOK("key")
-	if err := o.bindKey(qKey, qhkKey, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qLimit, qhkLimit, _ := qs.GetOK("limit")
-	if err := o.bindLimit(qLimit, qhkLimit, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qOffset, qhkOffset, _ := qs.GetOK("offset")
-	if err := o.bindOffset(qOffset, qhkOffset, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qPreload, qhkPreload, _ := qs.GetOK("preload")
-	if err := o.bindPreload(qPreload, qhkPreload, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qTags, qhkTags, _ := qs.GetOK("tags")
-	if err := o.bindTags(qTags, qhkTags, route.Formats); err != nil {
-		res = append(res, err)
-	}
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // bindDeleted binds and validates parameter Deleted from query.
 func (o *FindFlagsParams) bindDeleted(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-
-	value, err := swag.ConvertBool(raw)
-	if err != nil {
-		return errors.InvalidType("deleted", "query", "bool", raw)
-	}
-	o.Deleted = &value
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
 
 // bindDescription binds and validates parameter Description from query.
 func (o *FindFlagsParams) bindDescription(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-	o.Description = &raw
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
 
 // bindDescriptionLike binds and validates parameter DescriptionLike from query.
 func (o *FindFlagsParams) bindDescriptionLike(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-	o.DescriptionLike = &raw
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
 
 // bindEnabled binds and validates parameter Enabled from query.
 func (o *FindFlagsParams) bindEnabled(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-
-	value, err := swag.ConvertBool(raw)
-	if err != nil {
-		return errors.InvalidType("enabled", "query", "bool", raw)
-	}
-	o.Enabled = &value
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
 
 // bindKey binds and validates parameter Key from query.
 func (o *FindFlagsParams) bindKey(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-	o.Key = &raw
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
 
 // bindLimit binds and validates parameter Limit from query.
 func (o *FindFlagsParams) bindLimit(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("limit", "query", "int64", raw)
-	}
-	o.Limit = &value
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
 
 // bindOffset binds and validates parameter Offset from query.
 func (o *FindFlagsParams) bindOffset(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("offset", "query", "int64", raw)
-	}
-	o.Offset = &value
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
 
 // bindPreload binds and validates parameter Preload from query.
 func (o *FindFlagsParams) bindPreload(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-
-	value, err := swag.ConvertBool(raw)
-	if err != nil {
-		return errors.InvalidType("preload", "query", "bool", raw)
-	}
-	o.Preload = &value
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
 
 // bindTags binds and validates parameter Tags from query.
 func (o *FindFlagsParams) bindTags(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-	o.Tags = &raw
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations

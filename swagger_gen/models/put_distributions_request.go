@@ -7,13 +7,8 @@ package models
 
 import (
 	"context"
-	stderrors "errors"
-	"strconv"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // PutDistributionsRequest put distributions request
@@ -28,106 +23,38 @@ type PutDistributionsRequest struct {
 
 // Validate validates this put distributions request
 func (m *PutDistributionsRequest) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateDistributions(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *PutDistributionsRequest) validateDistributions(formats strfmt.Registry) error {
-
-	if err := validate.Required("distributions", "body", m.Distributions); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Distributions); i++ {
-		if swag.IsZero(m.Distributions[i]) { // not required
-			continue
-		}
-
-		if m.Distributions[i] != nil {
-			if err := m.Distributions[i].Validate(formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("distributions" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("distributions" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// not required
+
 // ContextValidate validate this put distributions request based on the context it is used
 func (m *PutDistributionsRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateDistributions(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *PutDistributionsRequest) contextValidateDistributions(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Distributions); i++ {
-
-		if m.Distributions[i] != nil {
-
-			if swag.IsZero(m.Distributions[i]) { // not required
-				return nil
-			}
-
-			if err := m.Distributions[i].ContextValidate(ctx, formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("distributions" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("distributions" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// not required
+
 // MarshalBinary interface implementation
 func (m *PutDistributionsRequest) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UnmarshalBinary interface implementation
 func (m *PutDistributionsRequest) UnmarshalBinary(b []byte) error {
-	var res PutDistributionsRequest
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
+	_ = "STUB: not implemented"
 	return nil
 }

@@ -30,33 +30,28 @@ type PostEvaluationBatchOK struct {
 }
 
 // NewPostEvaluationBatchOK creates PostEvaluationBatchOK with default headers values
-func NewPostEvaluationBatchOK() *PostEvaluationBatchOK {
-
-	return &PostEvaluationBatchOK{}
-}
+func NewPostEvaluationBatchOK() *PostEvaluationBatchOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the post evaluation batch o k response
 func (o *PostEvaluationBatchOK) WithPayload(payload *models.EvaluationBatchResponse) *PostEvaluationBatchOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the post evaluation batch o k response
 func (o *PostEvaluationBatchOK) SetPayload(payload *models.EvaluationBatchResponse) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *PostEvaluationBatchOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 PostEvaluationBatchDefault generic error response
@@ -74,45 +69,36 @@ type PostEvaluationBatchDefault struct {
 
 // NewPostEvaluationBatchDefault creates PostEvaluationBatchDefault with default headers values
 func NewPostEvaluationBatchDefault(code int) *PostEvaluationBatchDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &PostEvaluationBatchDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the post evaluation batch default response
 func (o *PostEvaluationBatchDefault) WithStatusCode(code int) *PostEvaluationBatchDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the post evaluation batch default response
-func (o *PostEvaluationBatchDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *PostEvaluationBatchDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the post evaluation batch default response
 func (o *PostEvaluationBatchDefault) WithPayload(payload *models.Error) *PostEvaluationBatchDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the post evaluation batch default response
 func (o *PostEvaluationBatchDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *PostEvaluationBatchDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

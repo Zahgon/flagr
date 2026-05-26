@@ -16,17 +16,20 @@ type FindConstraintsHandlerFunc func(FindConstraintsParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn FindConstraintsHandlerFunc) Handle(params FindConstraintsParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// FindConstraintsHandler interface for that can handle valid find constraints params
+	return *new(middleware.Responder)
 }
 
-// FindConstraintsHandler interface for that can handle valid find constraints params
 type FindConstraintsHandler interface {
 	Handle(FindConstraintsParams) middleware.Responder
 }
 
 // NewFindConstraints creates a new http.Handler for the find constraints operation
 func NewFindConstraints(ctx *middleware.Context, handler FindConstraintsHandler) *FindConstraints {
-	return &FindConstraints{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type FindConstraints struct {
 }
 
 func (o *FindConstraints) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewFindConstraintsParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

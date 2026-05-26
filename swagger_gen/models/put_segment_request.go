@@ -8,10 +8,7 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // PutSegmentRequest put segment request
@@ -33,71 +30,32 @@ type PutSegmentRequest struct {
 
 // Validate validates this put segment request
 func (m *PutSegmentRequest) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRolloutPercent(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *PutSegmentRequest) validateDescription(formats strfmt.Registry) error {
-
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("description", "body", *m.Description, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *PutSegmentRequest) validateRolloutPercent(formats strfmt.Registry) error {
-
-	if err := validate.Required("rolloutPercent", "body", m.RolloutPercent); err != nil {
-		return err
-	}
-
-	if err := validate.MinimumInt("rolloutPercent", "body", *m.RolloutPercent, 0, false); err != nil {
-		return err
-	}
-
-	if err := validate.MaximumInt("rolloutPercent", "body", *m.RolloutPercent, 100, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // ContextValidate validates this put segment request based on context it is used
 func (m *PutSegmentRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	_ = "STUB: not implemented"
+
+	// MarshalBinary interface implementation
 	return nil
 }
 
-// MarshalBinary interface implementation
 func (m *PutSegmentRequest) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UnmarshalBinary interface implementation
-func (m *PutSegmentRequest) UnmarshalBinary(b []byte) error {
-	var res PutSegmentRequest
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *PutSegmentRequest) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

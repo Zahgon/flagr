@@ -9,10 +9,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // EvalContext eval context
@@ -49,32 +46,14 @@ type EvalContext struct {
 
 // Validate validates this eval context
 func (m *EvalContext) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateFlagID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFlagTagsOperator(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *EvalContext) validateFlagID(formats strfmt.Registry) error {
-	if swag.IsZero(m.FlagID) { // not required
-		return nil
-	}
-
-	if err := validate.MinimumInt("flagID", "body", m.FlagID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
+	// not required
 }
 
 var evalContextTypeFlagTagsOperatorPropEnum []any
@@ -100,44 +79,28 @@ const (
 
 // prop value enum
 func (m *EvalContext) validateFlagTagsOperatorEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, evalContextTypeFlagTagsOperatorPropEnum, true); err != nil {
-		return err
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *EvalContext) validateFlagTagsOperator(formats strfmt.Registry) error {
-	if swag.IsZero(m.FlagTagsOperator) { // not required
-		return nil
-	}
-
-	// value enum
-	if err := m.validateFlagTagsOperatorEnum("flagTagsOperator", "body", *m.FlagTagsOperator); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// not required
+
+// value enum
 
 // ContextValidate validates this eval context based on context it is used
 func (m *EvalContext) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	_ = "STUB: not implemented"
+
+	// MarshalBinary interface implementation
 	return nil
 }
 
-// MarshalBinary interface implementation
-func (m *EvalContext) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
-}
+func (m *EvalContext) MarshalBinary() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalBinary interface implementation
-func (m *EvalContext) UnmarshalBinary(b []byte) error {
-	var res EvalContext
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *EvalContext) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

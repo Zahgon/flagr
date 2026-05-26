@@ -2,11 +2,8 @@ package handler
 
 import (
 	"crypto/tls"
-	"crypto/x509"
 	"fmt"
-	"os"
 	"strings"
-	"time"
 
 	"github.com/openflagr/flagr/pkg/config"
 	"github.com/openflagr/flagr/pkg/util"
@@ -21,11 +18,8 @@ var (
 )
 
 func mustParseKafkaVersion(version string) sarama.KafkaVersion {
-	v, err := sarama.ParseKafkaVersion(version)
-	if err != nil {
-		panic(err)
-	}
-	return v
+	_ = "STUB: not implemented"
+	return *new(sarama.KafkaVersion)
 }
 
 // NewKafkaRecorder creates a new Kafka recorder
@@ -92,37 +86,11 @@ var NewKafkaRecorder = func() DataRecorder {
 }
 
 func createTLSConfiguration(certFile string, keyFile string, caFile string, verifySSL bool, simpleSSL bool) (t *tls.Config) {
-	if certFile != "" && keyFile != "" {
-		cert, err := tls.LoadX509KeyPair(certFile, keyFile)
-		if err != nil {
-			logrus.WithField("TLSConfigurationError", err).Panic(err)
-		}
-
-		t = &tls.Config{
-			Certificates:       []tls.Certificate{cert},
-			InsecureSkipVerify: !verifySSL,
-		}
-	}
-
-	if simpleSSL {
-		t = &tls.Config{
-			InsecureSkipVerify: !verifySSL,
-		}
-	}
-
-	if caFile != "" && t != nil {
-		caCert, err := os.ReadFile(caFile)
-		if err != nil {
-			logrus.WithField("TLSConfigurationError", err).Panic(err)
-		}
-
-		caCertPool := x509.NewCertPool()
-		caCertPool.AppendCertsFromPEM(caCert)
-		t.RootCAs = caCertPool
-	}
-	// will be nil by default if nothing is provided
-	return t
+	_ = "STUB: not implemented"
+	return nil
 }
+
+// will be nil by default if nothing is provided
 
 type kafkaRecorder struct {
 	producer            sarama.AsyncProducer
@@ -132,32 +100,11 @@ type kafkaRecorder struct {
 }
 
 func (k *kafkaRecorder) NewDataRecordFrame(r models.EvalResult) DataRecordFrame {
-	return DataRecordFrame{
-		evalResult: r,
-		options:    k.options,
-	}
+	_ = "STUB: not implemented"
+	return *new(DataRecordFrame)
 }
 
-func (k *kafkaRecorder) AsyncRecord(r models.EvalResult) {
-	frame := k.NewDataRecordFrame(r)
-	output, err := frame.Output()
-	if err != nil {
-		logrus.WithField("err", err).Error("failed to generate data record frame for kafka recorder")
-		return
-	}
-	var partitionKey sarama.Encoder = nil
-	if k.partitionKeyEnabled {
-		partitionKey = sarama.StringEncoder(frame.GetPartitionKey())
-	}
-	k.producer.Input() <- &sarama.ProducerMessage{
-		Topic:     k.topic,
-		Key:       partitionKey,
-		Value:     sarama.ByteEncoder(output),
-		Timestamp: time.Now().UTC(),
-	}
-
-	logKafkaAsyncRecordToDatadog(r)
-}
+func (k *kafkaRecorder) AsyncRecord(r models.EvalResult) { _ = "STUB: not implemented"; return }
 
 var logKafkaAsyncRecordToDatadog = func(r models.EvalResult) {
 	if config.Global.StatsdClient == nil {

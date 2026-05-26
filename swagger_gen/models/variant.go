@@ -8,10 +8,7 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // Variant variant
@@ -34,85 +31,27 @@ type Variant struct {
 }
 
 // Validate validates this variant
-func (m *Variant) Validate(formats strfmt.Registry) error {
-	var res []error
+func (m *Variant) Validate(formats strfmt.Registry) error { _ = "STUB: not implemented"; return nil }
 
-	if err := m.validateID(formats); err != nil {
-		res = append(res, err)
-	}
+func (m *Variant) validateID(formats strfmt.Registry) error { _ = "STUB: not implemented"; return nil }
 
-	if err := m.validateKey(formats); err != nil {
-		res = append(res, err)
-	}
+// not required
 
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *Variant) validateID(formats strfmt.Registry) error {
-	if swag.IsZero(m.ID) { // not required
-		return nil
-	}
-
-	if err := validate.MinimumInt("id", "body", m.ID, 1, false); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Variant) validateKey(formats strfmt.Registry) error {
-
-	if err := validate.Required("key", "body", m.Key); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("key", "body", *m.Key, 1); err != nil {
-		return err
-	}
-
-	return nil
-}
+func (m *Variant) validateKey(formats strfmt.Registry) error { _ = "STUB: not implemented"; return nil }
 
 // ContextValidate validate this variant based on the context it is used
 func (m *Variant) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateID(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Variant) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
-
-	if err := validate.ReadOnly(ctx, "id", "body", m.ID); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *Variant) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
-}
+func (m *Variant) MarshalBinary() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalBinary interface implementation
-func (m *Variant) UnmarshalBinary(b []byte) error {
-	var res Variant
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *Variant) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

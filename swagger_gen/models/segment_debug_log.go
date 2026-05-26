@@ -8,10 +8,7 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // SegmentDebugLog segment debug log
@@ -29,49 +26,28 @@ type SegmentDebugLog struct {
 
 // Validate validates this segment debug log
 func (m *SegmentDebugLog) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateSegmentID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *SegmentDebugLog) validateSegmentID(formats strfmt.Registry) error {
-	if swag.IsZero(m.SegmentID) { // not required
-		return nil
-	}
-
-	if err := validate.MinimumInt("segmentID", "body", m.SegmentID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
+	// not required
 }
 
 // ContextValidate validates this segment debug log based on context it is used
 func (m *SegmentDebugLog) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	_ = "STUB: not implemented"
+
+	// MarshalBinary interface implementation
 	return nil
 }
 
-// MarshalBinary interface implementation
 func (m *SegmentDebugLog) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UnmarshalBinary interface implementation
-func (m *SegmentDebugLog) UnmarshalBinary(b []byte) error {
-	var res SegmentDebugLog
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *SegmentDebugLog) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

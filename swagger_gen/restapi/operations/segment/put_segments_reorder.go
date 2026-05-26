@@ -16,17 +16,20 @@ type PutSegmentsReorderHandlerFunc func(PutSegmentsReorderParams) middleware.Res
 
 // Handle executing the request and returning a response
 func (fn PutSegmentsReorderHandlerFunc) Handle(params PutSegmentsReorderParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// PutSegmentsReorderHandler interface for that can handle valid put segments reorder params
+	return *new(middleware.Responder)
 }
 
-// PutSegmentsReorderHandler interface for that can handle valid put segments reorder params
 type PutSegmentsReorderHandler interface {
 	Handle(PutSegmentsReorderParams) middleware.Responder
 }
 
 // NewPutSegmentsReorder creates a new http.Handler for the put segments reorder operation
 func NewPutSegmentsReorder(ctx *middleware.Context, handler PutSegmentsReorderHandler) *PutSegmentsReorder {
-	return &PutSegmentsReorder{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type PutSegmentsReorder struct {
 }
 
 func (o *PutSegmentsReorder) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewPutSegmentsReorderParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

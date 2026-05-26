@@ -16,17 +16,20 @@ type PutDistributionsHandlerFunc func(PutDistributionsParams) middleware.Respond
 
 // Handle executing the request and returning a response
 func (fn PutDistributionsHandlerFunc) Handle(params PutDistributionsParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// PutDistributionsHandler interface for that can handle valid put distributions params
+	return *new(middleware.Responder)
 }
 
-// PutDistributionsHandler interface for that can handle valid put distributions params
 type PutDistributionsHandler interface {
 	Handle(PutDistributionsParams) middleware.Responder
 }
 
 // NewPutDistributions creates a new http.Handler for the put distributions operation
 func NewPutDistributions(ctx *middleware.Context, handler PutDistributionsHandler) *PutDistributions {
-	return &PutDistributions{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type PutDistributions struct {
 }
 
 func (o *PutDistributions) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewPutDistributionsParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

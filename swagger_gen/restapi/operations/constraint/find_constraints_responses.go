@@ -30,36 +30,30 @@ type FindConstraintsOK struct {
 }
 
 // NewFindConstraintsOK creates FindConstraintsOK with default headers values
-func NewFindConstraintsOK() *FindConstraintsOK {
-
-	return &FindConstraintsOK{}
-}
+func NewFindConstraintsOK() *FindConstraintsOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the find constraints o k response
 func (o *FindConstraintsOK) WithPayload(payload []*models.Constraint) *FindConstraintsOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find constraints o k response
 func (o *FindConstraintsOK) SetPayload(payload []*models.Constraint) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *FindConstraintsOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	payload := o.Payload
-	if payload == nil {
-		// return empty array
-		payload = make([]*models.Constraint, 0, 50)
-	}
-
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// return empty array
+
+// let the recovery middleware deal with this
 
 /*
 FindConstraintsDefault generic error response
@@ -77,45 +71,36 @@ type FindConstraintsDefault struct {
 
 // NewFindConstraintsDefault creates FindConstraintsDefault with default headers values
 func NewFindConstraintsDefault(code int) *FindConstraintsDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &FindConstraintsDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the find constraints default response
 func (o *FindConstraintsDefault) WithStatusCode(code int) *FindConstraintsDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the find constraints default response
-func (o *FindConstraintsDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *FindConstraintsDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the find constraints default response
 func (o *FindConstraintsDefault) WithPayload(payload *models.Error) *FindConstraintsDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find constraints default response
 func (o *FindConstraintsDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *FindConstraintsDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

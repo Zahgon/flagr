@@ -7,12 +7,8 @@ package models
 
 import (
 	"context"
-	stderrors "errors"
-	"strconv"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 )
 
 // EvalDebugLog eval debug log
@@ -29,105 +25,34 @@ type EvalDebugLog struct {
 
 // Validate validates this eval debug log
 func (m *EvalDebugLog) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateSegmentDebugLogs(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *EvalDebugLog) validateSegmentDebugLogs(formats strfmt.Registry) error {
-	if swag.IsZero(m.SegmentDebugLogs) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.SegmentDebugLogs); i++ {
-		if swag.IsZero(m.SegmentDebugLogs[i]) { // not required
-			continue
-		}
-
-		if m.SegmentDebugLogs[i] != nil {
-			if err := m.SegmentDebugLogs[i].Validate(formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("segmentDebugLogs" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("segmentDebugLogs" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// not required
+
+// not required
+
 // ContextValidate validate this eval debug log based on the context it is used
 func (m *EvalDebugLog) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateSegmentDebugLogs(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *EvalDebugLog) contextValidateSegmentDebugLogs(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.SegmentDebugLogs); i++ {
-
-		if m.SegmentDebugLogs[i] != nil {
-
-			if swag.IsZero(m.SegmentDebugLogs[i]) { // not required
-				return nil
-			}
-
-			if err := m.SegmentDebugLogs[i].ContextValidate(ctx, formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("segmentDebugLogs" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("segmentDebugLogs" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// not required
 
 // MarshalBinary interface implementation
-func (m *EvalDebugLog) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
-}
+func (m *EvalDebugLog) MarshalBinary() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalBinary interface implementation
-func (m *EvalDebugLog) UnmarshalBinary(b []byte) error {
-	var res EvalDebugLog
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *EvalDebugLog) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

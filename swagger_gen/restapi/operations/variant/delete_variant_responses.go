@@ -25,18 +25,15 @@ type DeleteVariantOK struct {
 }
 
 // NewDeleteVariantOK creates DeleteVariantOK with default headers values
-func NewDeleteVariantOK() *DeleteVariantOK {
-
-	return &DeleteVariantOK{}
-}
+func NewDeleteVariantOK() *DeleteVariantOK { _ = "STUB: not implemented"; return nil }
 
 // WriteResponse to the client
 func (o *DeleteVariantOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.Header().Del(runtime.HeaderContentType) // Remove Content-Type on empty responses
-
-	rw.WriteHeader(200)
+	_ = "STUB: not implemented"
+	return
 }
+
+// Remove Content-Type on empty responses
 
 /*
 DeleteVariantDefault generic error response
@@ -53,46 +50,30 @@ type DeleteVariantDefault struct {
 }
 
 // NewDeleteVariantDefault creates DeleteVariantDefault with default headers values
-func NewDeleteVariantDefault(code int) *DeleteVariantDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &DeleteVariantDefault{
-		_statusCode: code,
-	}
-}
+func NewDeleteVariantDefault(code int) *DeleteVariantDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the delete variant default response
 func (o *DeleteVariantDefault) WithStatusCode(code int) *DeleteVariantDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the delete variant default response
-func (o *DeleteVariantDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *DeleteVariantDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the delete variant default response
 func (o *DeleteVariantDefault) WithPayload(payload *models.Error) *DeleteVariantDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the delete variant default response
-func (o *DeleteVariantDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *DeleteVariantDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *DeleteVariantDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

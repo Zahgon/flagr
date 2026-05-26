@@ -8,7 +8,6 @@ package flag
 import (
 	"net/http"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime/middleware"
 )
 
@@ -16,8 +15,8 @@ import (
 //
 // There are no default values defined in the spec.
 func NewGetFlagEntityTypesParams() GetFlagEntityTypesParams {
-
-	return GetFlagEntityTypesParams{}
+	_ = "STUB: not implemented"
+	return *new(GetFlagEntityTypesParams)
 }
 
 // GetFlagEntityTypesParams contains all the bound params for the get flag entity types operation
@@ -34,12 +33,6 @@ type GetFlagEntityTypesParams struct {
 //
 // To ensure default values, the struct must have been initialized with NewGetFlagEntityTypesParams() beforehand.
 func (o *GetFlagEntityTypesParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
-	var res []error
-
-	o.HTTPRequest = r
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }

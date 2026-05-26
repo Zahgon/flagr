@@ -30,33 +30,24 @@ type CreateSegmentOK struct {
 }
 
 // NewCreateSegmentOK creates CreateSegmentOK with default headers values
-func NewCreateSegmentOK() *CreateSegmentOK {
-
-	return &CreateSegmentOK{}
-}
+func NewCreateSegmentOK() *CreateSegmentOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the create segment o k response
 func (o *CreateSegmentOK) WithPayload(payload *models.Segment) *CreateSegmentOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the create segment o k response
-func (o *CreateSegmentOK) SetPayload(payload *models.Segment) {
-	o.Payload = payload
-}
+func (o *CreateSegmentOK) SetPayload(payload *models.Segment) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *CreateSegmentOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 CreateSegmentDefault generic error response
@@ -73,46 +64,30 @@ type CreateSegmentDefault struct {
 }
 
 // NewCreateSegmentDefault creates CreateSegmentDefault with default headers values
-func NewCreateSegmentDefault(code int) *CreateSegmentDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &CreateSegmentDefault{
-		_statusCode: code,
-	}
-}
+func NewCreateSegmentDefault(code int) *CreateSegmentDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the create segment default response
 func (o *CreateSegmentDefault) WithStatusCode(code int) *CreateSegmentDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the create segment default response
-func (o *CreateSegmentDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *CreateSegmentDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the create segment default response
 func (o *CreateSegmentDefault) WithPayload(payload *models.Error) *CreateSegmentDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the create segment default response
-func (o *CreateSegmentDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *CreateSegmentDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *CreateSegmentDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

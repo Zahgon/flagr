@@ -25,18 +25,15 @@ type DeleteFlagOK struct {
 }
 
 // NewDeleteFlagOK creates DeleteFlagOK with default headers values
-func NewDeleteFlagOK() *DeleteFlagOK {
-
-	return &DeleteFlagOK{}
-}
+func NewDeleteFlagOK() *DeleteFlagOK { _ = "STUB: not implemented"; return nil }
 
 // WriteResponse to the client
 func (o *DeleteFlagOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.Header().Del(runtime.HeaderContentType) // Remove Content-Type on empty responses
-
-	rw.WriteHeader(200)
+	_ = "STUB: not implemented"
+	return
 }
+
+// Remove Content-Type on empty responses
 
 /*
 DeleteFlagDefault generic error response
@@ -53,46 +50,30 @@ type DeleteFlagDefault struct {
 }
 
 // NewDeleteFlagDefault creates DeleteFlagDefault with default headers values
-func NewDeleteFlagDefault(code int) *DeleteFlagDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &DeleteFlagDefault{
-		_statusCode: code,
-	}
-}
+func NewDeleteFlagDefault(code int) *DeleteFlagDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the delete flag default response
 func (o *DeleteFlagDefault) WithStatusCode(code int) *DeleteFlagDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the delete flag default response
-func (o *DeleteFlagDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *DeleteFlagDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the delete flag default response
 func (o *DeleteFlagDefault) WithPayload(payload *models.Error) *DeleteFlagDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the delete flag default response
-func (o *DeleteFlagDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *DeleteFlagDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *DeleteFlagDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

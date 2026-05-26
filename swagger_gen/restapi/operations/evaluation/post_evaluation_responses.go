@@ -30,33 +30,28 @@ type PostEvaluationOK struct {
 }
 
 // NewPostEvaluationOK creates PostEvaluationOK with default headers values
-func NewPostEvaluationOK() *PostEvaluationOK {
-
-	return &PostEvaluationOK{}
-}
+func NewPostEvaluationOK() *PostEvaluationOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the post evaluation o k response
 func (o *PostEvaluationOK) WithPayload(payload *models.EvalResult) *PostEvaluationOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the post evaluation o k response
 func (o *PostEvaluationOK) SetPayload(payload *models.EvalResult) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *PostEvaluationOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 PostEvaluationDefault generic error response
@@ -74,45 +69,36 @@ type PostEvaluationDefault struct {
 
 // NewPostEvaluationDefault creates PostEvaluationDefault with default headers values
 func NewPostEvaluationDefault(code int) *PostEvaluationDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &PostEvaluationDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the post evaluation default response
 func (o *PostEvaluationDefault) WithStatusCode(code int) *PostEvaluationDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the post evaluation default response
-func (o *PostEvaluationDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *PostEvaluationDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the post evaluation default response
 func (o *PostEvaluationDefault) WithPayload(payload *models.Error) *PostEvaluationDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the post evaluation default response
 func (o *PostEvaluationDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *PostEvaluationDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

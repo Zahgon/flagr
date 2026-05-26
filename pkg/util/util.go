@@ -1,15 +1,7 @@
 package util
 
 import (
-	"fmt"
-	"math"
-	"path"
 	"regexp"
-	"strings"
-	"time"
-
-	"github.com/dchest/uniuri"
-	"github.com/spf13/cast"
 )
 
 var (
@@ -24,100 +16,41 @@ var (
 )
 
 // IsSafeKey return if the key is safe to store
-func IsSafeKey(s string) (bool, string) {
-	if !keyRegex.MatchString(s) {
-		return false, fmt.Sprintf("key:%s should have the format %v", s, keyRegex)
-	}
-	if len(s) > keyLengthLimit {
-		return false, fmt.Sprintf("key:%s cannot be longer than %d", s, keyLengthLimit)
-	}
-	return true, ""
-}
+func IsSafeKey(s string) (bool, string) { _ = "STUB: not implemented"; return false, "" }
 
 // IsSafeValue return if the value is safe to store
-func IsSafeValue(s string) (bool, string) {
-	if !valueRegex.MatchString(s) {
-		return false, fmt.Sprintf("value:%s should have the format %v", s, valueRegex)
-	}
-	if len(s) > valueLengthLimit {
-		return false, fmt.Sprintf("value:%s cannot be longer than %d", s, valueLengthLimit)
-	}
-	return true, ""
-}
+func IsSafeValue(s string) (bool, string) { _ = "STUB: not implemented"; return false, "" }
 
 // HasSafePrefix checks if the given string is a safe URL path prefix
-func HasSafePrefix(s string, prefix string) bool {
-	if prefix == "" {
-		return true
-	}
+func HasSafePrefix(s string, prefix string) bool { _ = "STUB: not implemented"; return false }
 
-	// Check for path traversal attempts or suspicious patterns
-	if s == "." || s == ".." || strings.Contains(s, "..") {
-		return false
-	}
+// Check for path traversal attempts or suspicious patterns
 
-	// First normalize the path (prefix is controlled by us, no need to clean it)
-	cleanedS := path.Clean(s)
+// First normalize the path (prefix is controlled by us, no need to clean it)
 
-	// Check if the normalized path starts with the prefix
-	return strings.HasPrefix(cleanedS, prefix)
-}
+// Check if the normalized path starts with the prefix
 
 // NewSecureRandomKey creates a new secure random key
-func NewSecureRandomKey() string {
-	return randomKeyPrefix + uniuri.NewLenChars(uniuri.StdLen, randomKeyCharset)
-}
+func NewSecureRandomKey() string { _ = "STUB: not implemented"; return "" }
 
 // SafeStringWithDefault parse an any to string
 // and set it to default value if it's empty
-func SafeStringWithDefault(s any, deft string) (ret string) {
-	ret = SafeString(s)
-	if ret == "" {
-		ret = deft
-	}
-	return ret
-}
+func SafeStringWithDefault(s any, deft string) (ret string) { _ = "STUB: not implemented"; return "" }
 
 // SafeString safely cast to string
-func SafeString(s any) (ret string) {
-	return cast.ToString(s)
-}
+func SafeString(s any) (ret string) { _ = "STUB: not implemented"; return "" }
 
 // SafeUint returns the uint of the value
-func SafeUint(s any) (ret uint) {
-	return cast.ToUint(s)
-}
+func SafeUint(s any) (ret uint) { _ = "STUB: not implemented"; return 0 }
 
 // Round makes the float to int conversion with rounding
-func Round(f float64) int {
-	return int(f + math.Copysign(0.5, f))
-}
+func Round(f float64) int { _ = "STUB: not implemented"; return 0 }
 
 // TimeNow follows RFC3339 time format
-func TimeNow() string {
-	return time.Now().UTC().Format(time.RFC3339)
-}
+func TimeNow() string { _ = "STUB: not implemented"; return "" }
 
 // ParseHeaders converts a comma-separated list of key-value pairs separated by colons into a map of strings.
 // It gracefully handles edge cases such as empty headers, missing values, spaces around keys and values,
 // and malformed chunks by filtering them out.
 // Example: "Authorization: Bearer token, X-Custom-Header: value" will be parsed correctly.
-func ParseHeaders(headerStr string) map[string]string {
-	headers := make(map[string]string)
-	if headerStr == "" {
-		return headers
-	}
-
-	pairs := strings.Split(headerStr, ",")
-	for _, pair := range pairs {
-		parts := strings.SplitN(pair, ":", 2)
-		if len(parts) == 2 {
-			key := strings.TrimSpace(parts[0])
-			val := strings.TrimSpace(parts[1])
-			if key != "" {
-				headers[key] = val
-			}
-		}
-	}
-	return headers
-}
+func ParseHeaders(headerStr string) map[string]string { _ = "STUB: not implemented"; return nil }

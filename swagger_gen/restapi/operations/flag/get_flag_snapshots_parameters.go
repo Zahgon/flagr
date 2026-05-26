@@ -8,20 +8,16 @@ package flag
 import (
 	"net/http"
 
-	"github.com/go-openapi/errors"
-	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // NewGetFlagSnapshotsParams creates a new GetFlagSnapshotsParams object
 //
 // There are no default values defined in the spec.
 func NewGetFlagSnapshotsParams() GetFlagSnapshotsParams {
-
-	return GetFlagSnapshotsParams{}
+	_ = "STUB: not implemented"
+	return *new(GetFlagSnapshotsParams)
 }
 
 // GetFlagSnapshotsParams contains all the bound params for the get flag snapshots operation
@@ -60,143 +56,60 @@ type GetFlagSnapshotsParams struct {
 //
 // To ensure default values, the struct must have been initialized with NewGetFlagSnapshotsParams() beforehand.
 func (o *GetFlagSnapshotsParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
-	var res []error
-
-	o.HTTPRequest = r
-	qs := runtime.Values(r.URL.Query())
-
-	rFlagID, rhkFlagID, _ := route.Params.GetOK("flagID")
-	if err := o.bindFlagID(rFlagID, rhkFlagID, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qLimit, qhkLimit, _ := qs.GetOK("limit")
-	if err := o.bindLimit(qLimit, qhkLimit, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qOffset, qhkOffset, _ := qs.GetOK("offset")
-	if err := o.bindOffset(qOffset, qhkOffset, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	qSort, qhkSort, _ := qs.GetOK("sort")
-	if err := o.bindSort(qSort, qhkSort, route.Formats); err != nil {
-		res = append(res, err)
-	}
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // bindFlagID binds and validates parameter FlagID from path.
 func (o *GetFlagSnapshotsParams) bindFlagID(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: true
-	// Parameter is provided by construction from the route
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("flagID", "path", "int64", raw)
-	}
-	o.FlagID = value
-
-	if err := o.validateFlagID(formats); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// Required: true
+// Parameter is provided by construction from the route
+
 // validateFlagID carries out validations for parameter FlagID
 func (o *GetFlagSnapshotsParams) validateFlagID(formats strfmt.Registry) error {
-
-	if err := validate.MinimumInt("flagID", "path", o.FlagID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // bindLimit binds and validates parameter Limit from query.
 func (o *GetFlagSnapshotsParams) bindLimit(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("limit", "query", "int64", raw)
-	}
-	o.Limit = &value
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
 
 // bindOffset binds and validates parameter Offset from query.
 func (o *GetFlagSnapshotsParams) bindOffset(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("offset", "query", "int64", raw)
-	}
-	o.Offset = &value
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
 
 // bindSort binds and validates parameter Sort from query.
 func (o *GetFlagSnapshotsParams) bindSort(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-	o.Sort = &raw
-
-	if err := o.validateSort(formats); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations
+
 // validateSort carries out validations for parameter Sort
 func (o *GetFlagSnapshotsParams) validateSort(formats strfmt.Registry) error {
-
-	if err := validate.EnumCase("sort", "query", *o.Sort, []any{"ASC", "DESC"}, true); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }

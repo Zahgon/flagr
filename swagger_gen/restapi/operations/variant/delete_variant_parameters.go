@@ -8,19 +8,16 @@ package variant
 import (
 	"net/http"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // NewDeleteVariantParams creates a new DeleteVariantParams object
 //
 // There are no default values defined in the spec.
 func NewDeleteVariantParams() DeleteVariantParams {
-
-	return DeleteVariantParams{}
+	_ = "STUB: not implemented"
+	return *new(DeleteVariantParams)
 }
 
 // DeleteVariantParams contains all the bound params for the delete variant operation
@@ -51,87 +48,36 @@ type DeleteVariantParams struct {
 //
 // To ensure default values, the struct must have been initialized with NewDeleteVariantParams() beforehand.
 func (o *DeleteVariantParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
-	var res []error
-
-	o.HTTPRequest = r
-
-	rFlagID, rhkFlagID, _ := route.Params.GetOK("flagID")
-	if err := o.bindFlagID(rFlagID, rhkFlagID, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	rVariantID, rhkVariantID, _ := route.Params.GetOK("variantID")
-	if err := o.bindVariantID(rVariantID, rhkVariantID, route.Formats); err != nil {
-		res = append(res, err)
-	}
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // bindFlagID binds and validates parameter FlagID from path.
 func (o *DeleteVariantParams) bindFlagID(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: true
-	// Parameter is provided by construction from the route
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("flagID", "path", "int64", raw)
-	}
-	o.FlagID = value
-
-	if err := o.validateFlagID(formats); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// Required: true
+// Parameter is provided by construction from the route
+
 // validateFlagID carries out validations for parameter FlagID
 func (o *DeleteVariantParams) validateFlagID(formats strfmt.Registry) error {
-
-	if err := validate.MinimumInt("flagID", "path", o.FlagID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // bindVariantID binds and validates parameter VariantID from path.
 func (o *DeleteVariantParams) bindVariantID(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: true
-	// Parameter is provided by construction from the route
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("variantID", "path", "int64", raw)
-	}
-	o.VariantID = value
-
-	if err := o.validateVariantID(formats); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// Required: true
+// Parameter is provided by construction from the route
+
 // validateVariantID carries out validations for parameter VariantID
 func (o *DeleteVariantParams) validateVariantID(formats strfmt.Registry) error {
-
-	if err := validate.MinimumInt("variantID", "path", o.VariantID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }

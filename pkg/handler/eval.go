@@ -28,146 +28,37 @@ type Eval interface {
 }
 
 // NewEval creates a new Eval instance
-func NewEval() Eval {
-	return &eval{}
-}
+func NewEval() Eval { _ = "STUB: not implemented"; return *new(Eval) }
 
 type eval struct{}
 
 func (e *eval) PostEvaluation(params evaluation.PostEvaluationParams) middleware.Responder {
-	evalContext := params.Body
-	if evalContext == nil {
-		return evaluation.NewPostEvaluationDefault(400).WithPayload(
-			ErrorMessage("empty body"))
-	}
-
-	evalResult := EvalFlag(*evalContext)
-	resp := evaluation.NewPostEvaluationOK()
-	resp.SetPayload(evalResult)
-	return resp
+	_ = "STUB: not implemented"
+	return *new(middleware.Responder)
 }
 
 func (e *eval) PostEvaluationBatch(params evaluation.PostEvaluationBatchParams) middleware.Responder {
-	entities := params.Body.Entities
-	flagIDs := params.Body.FlagIDs
-	flagKeys := params.Body.FlagKeys
-	flagTags := params.Body.FlagTags
-	flagTagsOperator := params.Body.FlagTagsOperator
-	results := &models.EvaluationBatchResponse{}
-
-	// Deduplicate flagKeys to prevent DoS via repeated keys
-	if len(flagKeys) > 1 {
-		seen := make(map[string]struct{}, len(flagKeys))
-		uniqueFlagKeys := make([]string, 0, len(flagKeys))
-		for _, k := range flagKeys {
-			if _, exists := seen[k]; !exists {
-				seen[k] = struct{}{}
-				uniqueFlagKeys = append(uniqueFlagKeys, k)
-			}
-		}
-		flagKeys = uniqueFlagKeys
-	}
-
-	// Deduplicate flagIDs to prevent DoS via repeated IDs
-	if len(flagIDs) > 1 {
-		seen := make(map[int64]struct{}, len(flagIDs))
-		uniqueFlagIDs := make([]int64, 0, len(flagIDs))
-		for _, id := range flagIDs {
-			if _, exists := seen[id]; !exists {
-				seen[id] = struct{}{}
-				uniqueFlagIDs = append(uniqueFlagIDs, id)
-			}
-		}
-		flagIDs = uniqueFlagIDs
-	}
-
-	// Validate batch size to prevent DoS attacks via resource exhaustion (if enabled)
-	if maxBatchSize := config.Config.EvalBatchSize; maxBatchSize > 0 {
-		// Calculate total evaluations: entities * (flagIDs + flagKeys + flagTags)
-		// For flagTags, we count each tag as potentially matching one flag (conservative estimate)
-		flagsPerEntity := len(flagIDs) + len(flagKeys)
-		if len(flagTags) > 0 {
-			flagsPerEntity++ // flagTags is evaluated once per entity regardless of count
-		}
-		if total := len(entities) * flagsPerEntity; total > maxBatchSize {
-			return evaluation.NewPostEvaluationBatchDefault(400).WithPayload(
-				ErrorMessage("batch evaluation size %d exceeds maximum allowed size of %d", total, maxBatchSize))
-		}
-	}
-
-	// TODO make it concurrent
-	for _, entity := range entities {
-		if len(flagTags) > 0 {
-			evalContext := models.EvalContext{
-				EnableDebug:      params.Body.EnableDebug,
-				EntityContext:    entity.EntityContext,
-				EntityID:         entity.EntityID,
-				EntityType:       entity.EntityType,
-				FlagTags:         flagTags,
-				FlagTagsOperator: flagTagsOperator,
-			}
-			evalResults := EvalFlagsByTags(evalContext)
-			results.EvaluationResults = append(results.EvaluationResults, evalResults...)
-		}
-		for _, flagID := range flagIDs {
-			evalContext := models.EvalContext{
-				EnableDebug:   params.Body.EnableDebug,
-				EntityContext: entity.EntityContext,
-				EntityID:      entity.EntityID,
-				EntityType:    entity.EntityType,
-				FlagID:        flagID,
-			}
-
-			evalResult := EvalFlag(evalContext)
-			results.EvaluationResults = append(results.EvaluationResults, evalResult)
-		}
-		for _, flagKey := range flagKeys {
-			evalContext := models.EvalContext{
-				EnableDebug:   params.Body.EnableDebug,
-				EntityContext: entity.EntityContext,
-				EntityID:      entity.EntityID,
-				EntityType:    entity.EntityType,
-				FlagKey:       flagKey,
-			}
-
-			evalResult := EvalFlag(evalContext)
-			results.EvaluationResults = append(results.EvaluationResults, evalResult)
-		}
-	}
-
-	resp := evaluation.NewPostEvaluationBatchOK()
-	resp.SetPayload(results)
-	return resp
+	_ = "STUB: not implemented"
+	return *new(middleware.Responder)
 }
+
+// Deduplicate flagKeys to prevent DoS via repeated keys
+
+// Deduplicate flagIDs to prevent DoS via repeated IDs
+
+// Validate batch size to prevent DoS attacks via resource exhaustion (if enabled)
+
+// Calculate total evaluations: entities * (flagIDs + flagKeys + flagTags)
+// For flagTags, we count each tag as potentially matching one flag (conservative estimate)
+
+// flagTags is evaluated once per entity regardless of count
+
+// TODO make it concurrent
 
 // BlankResult creates a blank result
 func BlankResult(f *entity.Flag, evalContext models.EvalContext, msg string) *models.EvalResult {
-	flagID := uint(0)
-	flagKey := ""
-	flagSnapshotID := uint(0)
-	flagTags := []string{}
-	if f != nil {
-		flagID = f.ID
-		flagSnapshotID = f.SnapshotID
-		flagKey = f.Key
-		if len(f.Tags) > 0 {
-			for _, tag := range f.Tags {
-				flagTags = append(flagTags, tag.Value)
-			}
-		}
-	}
-	return &models.EvalResult{
-		EvalContext: &evalContext,
-		EvalDebugLog: &models.EvalDebugLog{
-			Msg:              msg,
-			SegmentDebugLogs: nil,
-		},
-		FlagID:         int64(flagID),
-		FlagKey:        flagKey,
-		FlagSnapshotID: int64(flagSnapshotID),
-		FlagTags:       flagTags,
-		Timestamp:      util.TimeNow(),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 var LookupFlag = func(evalContext models.EvalContext) *entity.Flag {
@@ -361,10 +252,8 @@ var evalSegment = func(
 }
 
 func debugConstraintMsg(enableDebug bool, expr conditions.Expr, m map[string]any) string {
-	if !enableDebug {
-		return ""
-	}
-	return fmt.Sprintf("constraint not match. constraint: %s, entity_context: %+v.", expr, m)
+	_ = "STUB: not implemented"
+	return ""
 }
 
 var rateLimitMap = sync.Map{}

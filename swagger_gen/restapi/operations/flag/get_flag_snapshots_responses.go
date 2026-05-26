@@ -30,36 +30,30 @@ type GetFlagSnapshotsOK struct {
 }
 
 // NewGetFlagSnapshotsOK creates GetFlagSnapshotsOK with default headers values
-func NewGetFlagSnapshotsOK() *GetFlagSnapshotsOK {
-
-	return &GetFlagSnapshotsOK{}
-}
+func NewGetFlagSnapshotsOK() *GetFlagSnapshotsOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the get flag snapshots o k response
 func (o *GetFlagSnapshotsOK) WithPayload(payload []*models.FlagSnapshot) *GetFlagSnapshotsOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the get flag snapshots o k response
 func (o *GetFlagSnapshotsOK) SetPayload(payload []*models.FlagSnapshot) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *GetFlagSnapshotsOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	payload := o.Payload
-	if payload == nil {
-		// return empty array
-		payload = make([]*models.FlagSnapshot, 0, 50)
-	}
-
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// return empty array
+
+// let the recovery middleware deal with this
 
 /*
 GetFlagSnapshotsDefault generic error response
@@ -77,45 +71,36 @@ type GetFlagSnapshotsDefault struct {
 
 // NewGetFlagSnapshotsDefault creates GetFlagSnapshotsDefault with default headers values
 func NewGetFlagSnapshotsDefault(code int) *GetFlagSnapshotsDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &GetFlagSnapshotsDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the get flag snapshots default response
 func (o *GetFlagSnapshotsDefault) WithStatusCode(code int) *GetFlagSnapshotsDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the get flag snapshots default response
-func (o *GetFlagSnapshotsDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *GetFlagSnapshotsDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the get flag snapshots default response
 func (o *GetFlagSnapshotsDefault) WithPayload(payload *models.Error) *GetFlagSnapshotsDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the get flag snapshots default response
 func (o *GetFlagSnapshotsDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *GetFlagSnapshotsDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

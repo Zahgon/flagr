@@ -7,11 +7,8 @@ package models
 
 import (
 	"context"
-	stderrors "errors"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 )
 
 // EvalResult eval result
@@ -54,151 +51,44 @@ type EvalResult struct {
 }
 
 // Validate validates this eval result
-func (m *EvalResult) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateEvalContext(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateEvalDebugLog(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
+func (m *EvalResult) Validate(formats strfmt.Registry) error { _ = "STUB: not implemented"; return nil }
 
 func (m *EvalResult) validateEvalContext(formats strfmt.Registry) error {
-	if swag.IsZero(m.EvalContext) { // not required
-		return nil
-	}
-
-	if m.EvalContext != nil {
-		if err := m.EvalContext.Validate(formats); err != nil {
-			ve := new(errors.Validation)
-			if stderrors.As(err, &ve) {
-				return ve.ValidateName("evalContext")
-			}
-			ce := new(errors.CompositeError)
-			if stderrors.As(err, &ce) {
-				return ce.ValidateName("evalContext")
-			}
-
-			return err
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// not required
 
 func (m *EvalResult) validateEvalDebugLog(formats strfmt.Registry) error {
-	if swag.IsZero(m.EvalDebugLog) { // not required
-		return nil
-	}
-
-	if m.EvalDebugLog != nil {
-		if err := m.EvalDebugLog.Validate(formats); err != nil {
-			ve := new(errors.Validation)
-			if stderrors.As(err, &ve) {
-				return ve.ValidateName("evalDebugLog")
-			}
-			ce := new(errors.CompositeError)
-			if stderrors.As(err, &ce) {
-				return ce.ValidateName("evalDebugLog")
-			}
-
-			return err
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// not required
 
 // ContextValidate validate this eval result based on the context it is used
 func (m *EvalResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateEvalContext(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateEvalDebugLog(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *EvalResult) contextValidateEvalContext(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.EvalContext != nil {
-
-		if swag.IsZero(m.EvalContext) { // not required
-			return nil
-		}
-
-		if err := m.EvalContext.ContextValidate(ctx, formats); err != nil {
-			ve := new(errors.Validation)
-			if stderrors.As(err, &ve) {
-				return ve.ValidateName("evalContext")
-			}
-			ce := new(errors.CompositeError)
-			if stderrors.As(err, &ce) {
-				return ce.ValidateName("evalContext")
-			}
-
-			return err
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// not required
 
 func (m *EvalResult) contextValidateEvalDebugLog(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.EvalDebugLog != nil {
-
-		if swag.IsZero(m.EvalDebugLog) { // not required
-			return nil
-		}
-
-		if err := m.EvalDebugLog.ContextValidate(ctx, formats); err != nil {
-			ve := new(errors.Validation)
-			if stderrors.As(err, &ve) {
-				return ve.ValidateName("evalDebugLog")
-			}
-			ce := new(errors.CompositeError)
-			if stderrors.As(err, &ce) {
-				return ce.ValidateName("evalDebugLog")
-			}
-
-			return err
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// not required
 
 // MarshalBinary interface implementation
-func (m *EvalResult) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
-}
+func (m *EvalResult) MarshalBinary() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalBinary interface implementation
-func (m *EvalResult) UnmarshalBinary(b []byte) error {
-	var res EvalResult
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *EvalResult) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

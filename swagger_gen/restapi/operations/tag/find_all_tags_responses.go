@@ -30,36 +30,26 @@ type FindAllTagsOK struct {
 }
 
 // NewFindAllTagsOK creates FindAllTagsOK with default headers values
-func NewFindAllTagsOK() *FindAllTagsOK {
-
-	return &FindAllTagsOK{}
-}
+func NewFindAllTagsOK() *FindAllTagsOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the find all tags o k response
 func (o *FindAllTagsOK) WithPayload(payload []*models.Tag) *FindAllTagsOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find all tags o k response
-func (o *FindAllTagsOK) SetPayload(payload []*models.Tag) {
-	o.Payload = payload
-}
+func (o *FindAllTagsOK) SetPayload(payload []*models.Tag) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *FindAllTagsOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	payload := o.Payload
-	if payload == nil {
-		// return empty array
-		payload = make([]*models.Tag, 0, 50)
-	}
-
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// return empty array
+
+// let the recovery middleware deal with this
 
 /*
 FindAllTagsDefault generic error response
@@ -76,46 +66,30 @@ type FindAllTagsDefault struct {
 }
 
 // NewFindAllTagsDefault creates FindAllTagsDefault with default headers values
-func NewFindAllTagsDefault(code int) *FindAllTagsDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &FindAllTagsDefault{
-		_statusCode: code,
-	}
-}
+func NewFindAllTagsDefault(code int) *FindAllTagsDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the find all tags default response
 func (o *FindAllTagsDefault) WithStatusCode(code int) *FindAllTagsDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the find all tags default response
-func (o *FindAllTagsDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *FindAllTagsDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the find all tags default response
 func (o *FindAllTagsDefault) WithPayload(payload *models.Error) *FindAllTagsDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find all tags default response
-func (o *FindAllTagsDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *FindAllTagsDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *FindAllTagsDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

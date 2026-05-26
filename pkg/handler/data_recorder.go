@@ -3,7 +3,6 @@ package handler
 import (
 	"sync"
 
-	"github.com/openflagr/flagr/pkg/config"
 	"github.com/openflagr/flagr/swagger_gen/models"
 )
 
@@ -19,20 +18,4 @@ type DataRecorder interface {
 }
 
 // GetDataRecorder gets the data recorder
-func GetDataRecorder() DataRecorder {
-	singletonDataRecorderOnce.Do(func() {
-		recorderType := config.Config.RecorderType
-		switch recorderType {
-		case "kafka":
-			singletonDataRecorder = NewKafkaRecorder()
-		case "kinesis":
-			singletonDataRecorder = NewKinesisRecorder()
-		case "pubsub":
-			singletonDataRecorder = NewPubsubRecorder()
-		default:
-			panic("recorderType not supported")
-		}
-	})
-
-	return singletonDataRecorder
-}
+func GetDataRecorder() DataRecorder { _ = "STUB: not implemented"; return *new(DataRecorder) }

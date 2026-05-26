@@ -31,31 +31,24 @@ type GetExportSqliteOK struct {
 }
 
 // NewGetExportSqliteOK creates GetExportSqliteOK with default headers values
-func NewGetExportSqliteOK() *GetExportSqliteOK {
-
-	return &GetExportSqliteOK{}
-}
+func NewGetExportSqliteOK() *GetExportSqliteOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the get export sqlite o k response
 func (o *GetExportSqliteOK) WithPayload(payload io.ReadCloser) *GetExportSqliteOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the get export sqlite o k response
-func (o *GetExportSqliteOK) SetPayload(payload io.ReadCloser) {
-	o.Payload = payload
-}
+func (o *GetExportSqliteOK) SetPayload(payload io.ReadCloser) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *GetExportSqliteOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	payload := o.Payload
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 GetExportSqliteDefault generic error response
@@ -73,45 +66,36 @@ type GetExportSqliteDefault struct {
 
 // NewGetExportSqliteDefault creates GetExportSqliteDefault with default headers values
 func NewGetExportSqliteDefault(code int) *GetExportSqliteDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &GetExportSqliteDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the get export sqlite default response
 func (o *GetExportSqliteDefault) WithStatusCode(code int) *GetExportSqliteDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the get export sqlite default response
-func (o *GetExportSqliteDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *GetExportSqliteDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the get export sqlite default response
 func (o *GetExportSqliteDefault) WithPayload(payload *models.Error) *GetExportSqliteDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the get export sqlite default response
 func (o *GetExportSqliteDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *GetExportSqliteDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

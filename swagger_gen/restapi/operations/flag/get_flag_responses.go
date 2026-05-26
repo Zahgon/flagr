@@ -30,33 +30,24 @@ type GetFlagOK struct {
 }
 
 // NewGetFlagOK creates GetFlagOK with default headers values
-func NewGetFlagOK() *GetFlagOK {
-
-	return &GetFlagOK{}
-}
+func NewGetFlagOK() *GetFlagOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the get flag o k response
 func (o *GetFlagOK) WithPayload(payload *models.Flag) *GetFlagOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the get flag o k response
-func (o *GetFlagOK) SetPayload(payload *models.Flag) {
-	o.Payload = payload
-}
+func (o *GetFlagOK) SetPayload(payload *models.Flag) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *GetFlagOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 GetFlagDefault generic error response
@@ -73,46 +64,30 @@ type GetFlagDefault struct {
 }
 
 // NewGetFlagDefault creates GetFlagDefault with default headers values
-func NewGetFlagDefault(code int) *GetFlagDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &GetFlagDefault{
-		_statusCode: code,
-	}
-}
+func NewGetFlagDefault(code int) *GetFlagDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the get flag default response
 func (o *GetFlagDefault) WithStatusCode(code int) *GetFlagDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the get flag default response
-func (o *GetFlagDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *GetFlagDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the get flag default response
 func (o *GetFlagDefault) WithPayload(payload *models.Error) *GetFlagDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the get flag default response
-func (o *GetFlagDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *GetFlagDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *GetFlagDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

@@ -8,7 +8,6 @@ package health
 import (
 	"net/http"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime/middleware"
 )
 
@@ -16,14 +15,16 @@ import (
 //
 // There are no default values defined in the spec.
 func NewGetHealthParams() GetHealthParams {
+	_ = "STUB: not implemented"
+	return *
 
-	return GetHealthParams{}
+	// GetHealthParams contains all the bound params for the get health operation
+	// typically these are obtained from a http.Request
+	//
+	// swagger:parameters getHealth
+	new(GetHealthParams)
 }
 
-// GetHealthParams contains all the bound params for the get health operation
-// typically these are obtained from a http.Request
-//
-// swagger:parameters getHealth
 type GetHealthParams struct {
 	// HTTP Request Object
 	HTTPRequest *http.Request `json:"-"`
@@ -34,12 +35,6 @@ type GetHealthParams struct {
 //
 // To ensure default values, the struct must have been initialized with NewGetHealthParams() beforehand.
 func (o *GetHealthParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
-	var res []error
-
-	o.HTTPRequest = r
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }

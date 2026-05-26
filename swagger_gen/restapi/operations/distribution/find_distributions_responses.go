@@ -30,36 +30,30 @@ type FindDistributionsOK struct {
 }
 
 // NewFindDistributionsOK creates FindDistributionsOK with default headers values
-func NewFindDistributionsOK() *FindDistributionsOK {
-
-	return &FindDistributionsOK{}
-}
+func NewFindDistributionsOK() *FindDistributionsOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the find distributions o k response
 func (o *FindDistributionsOK) WithPayload(payload []*models.Distribution) *FindDistributionsOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find distributions o k response
 func (o *FindDistributionsOK) SetPayload(payload []*models.Distribution) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *FindDistributionsOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	payload := o.Payload
-	if payload == nil {
-		// return empty array
-		payload = make([]*models.Distribution, 0, 50)
-	}
-
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// return empty array
+
+// let the recovery middleware deal with this
 
 /*
 FindDistributionsDefault generic error response
@@ -77,45 +71,36 @@ type FindDistributionsDefault struct {
 
 // NewFindDistributionsDefault creates FindDistributionsDefault with default headers values
 func NewFindDistributionsDefault(code int) *FindDistributionsDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &FindDistributionsDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the find distributions default response
 func (o *FindDistributionsDefault) WithStatusCode(code int) *FindDistributionsDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the find distributions default response
-func (o *FindDistributionsDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *FindDistributionsDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the find distributions default response
 func (o *FindDistributionsDefault) WithPayload(payload *models.Error) *FindDistributionsDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find distributions default response
 func (o *FindDistributionsDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *FindDistributionsDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

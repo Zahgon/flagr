@@ -16,17 +16,20 @@ type FindFlagsHandlerFunc func(FindFlagsParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn FindFlagsHandlerFunc) Handle(params FindFlagsParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// FindFlagsHandler interface for that can handle valid find flags params
+	return *new(middleware.Responder)
 }
 
-// FindFlagsHandler interface for that can handle valid find flags params
 type FindFlagsHandler interface {
 	Handle(FindFlagsParams) middleware.Responder
 }
 
 // NewFindFlags creates a new http.Handler for the find flags operation
 func NewFindFlags(ctx *middleware.Context, handler FindFlagsHandler) *FindFlags {
-	return &FindFlags{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type FindFlags struct {
 }
 
 func (o *FindFlags) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewFindFlagsParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

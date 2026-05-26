@@ -16,17 +16,20 @@ type GetHealthHandlerFunc func(GetHealthParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn GetHealthHandlerFunc) Handle(params GetHealthParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// GetHealthHandler interface for that can handle valid get health params
+	return *new(middleware.Responder)
 }
 
-// GetHealthHandler interface for that can handle valid get health params
 type GetHealthHandler interface {
 	Handle(GetHealthParams) middleware.Responder
 }
 
 // NewGetHealth creates a new http.Handler for the get health operation
 func NewGetHealth(ctx *middleware.Context, handler GetHealthHandler) *GetHealth {
-	return &GetHealth{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type GetHealth struct {
 }
 
 func (o *GetHealth) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewGetHealthParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

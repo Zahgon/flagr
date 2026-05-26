@@ -25,18 +25,15 @@ type PutSegmentsReorderOK struct {
 }
 
 // NewPutSegmentsReorderOK creates PutSegmentsReorderOK with default headers values
-func NewPutSegmentsReorderOK() *PutSegmentsReorderOK {
-
-	return &PutSegmentsReorderOK{}
-}
+func NewPutSegmentsReorderOK() *PutSegmentsReorderOK { _ = "STUB: not implemented"; return nil }
 
 // WriteResponse to the client
 func (o *PutSegmentsReorderOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.Header().Del(runtime.HeaderContentType) // Remove Content-Type on empty responses
-
-	rw.WriteHeader(200)
+	_ = "STUB: not implemented"
+	return
 }
+
+// Remove Content-Type on empty responses
 
 /*
 PutSegmentsReorderDefault generic error response
@@ -54,45 +51,36 @@ type PutSegmentsReorderDefault struct {
 
 // NewPutSegmentsReorderDefault creates PutSegmentsReorderDefault with default headers values
 func NewPutSegmentsReorderDefault(code int) *PutSegmentsReorderDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &PutSegmentsReorderDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the put segments reorder default response
 func (o *PutSegmentsReorderDefault) WithStatusCode(code int) *PutSegmentsReorderDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the put segments reorder default response
-func (o *PutSegmentsReorderDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *PutSegmentsReorderDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the put segments reorder default response
 func (o *PutSegmentsReorderDefault) WithPayload(payload *models.Error) *PutSegmentsReorderDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the put segments reorder default response
 func (o *PutSegmentsReorderDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *PutSegmentsReorderDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

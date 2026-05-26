@@ -62,21 +62,8 @@ var NewKinesisRecorder = func() DataRecorder {
 }
 
 func (k *kinesisRecorder) NewDataRecordFrame(r models.EvalResult) DataRecordFrame {
-	return DataRecordFrame{
-		evalResult: r,
-		options:    k.options,
-	}
+	_ = "STUB: not implemented"
+	return *new(DataRecordFrame)
 }
 
-func (k *kinesisRecorder) AsyncRecord(r models.EvalResult) {
-	frame := k.NewDataRecordFrame(r)
-	output, err := frame.Output()
-	if err != nil {
-		logrus.WithField("err", err).Error("failed to generate data record frame for kinesis recorder")
-		return
-	}
-	err = k.producer.Put(output, frame.GetPartitionKey())
-	if err != nil {
-		logrus.WithField("kinesis_error", err).Error("error pushing to kinesis")
-	}
-}
+func (k *kinesisRecorder) AsyncRecord(r models.EvalResult) { _ = "STUB: not implemented"; return }

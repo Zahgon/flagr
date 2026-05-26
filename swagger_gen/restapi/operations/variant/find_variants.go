@@ -16,17 +16,20 @@ type FindVariantsHandlerFunc func(FindVariantsParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn FindVariantsHandlerFunc) Handle(params FindVariantsParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// FindVariantsHandler interface for that can handle valid find variants params
+	return *new(middleware.Responder)
 }
 
-// FindVariantsHandler interface for that can handle valid find variants params
 type FindVariantsHandler interface {
 	Handle(FindVariantsParams) middleware.Responder
 }
 
 // NewFindVariants creates a new http.Handler for the find variants operation
 func NewFindVariants(ctx *middleware.Context, handler FindVariantsHandler) *FindVariants {
-	return &FindVariants{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type FindVariants struct {
 }
 
 func (o *FindVariants) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewFindVariantsParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

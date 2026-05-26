@@ -16,17 +16,20 @@ type PostEvaluationBatchHandlerFunc func(PostEvaluationBatchParams) middleware.R
 
 // Handle executing the request and returning a response
 func (fn PostEvaluationBatchHandlerFunc) Handle(params PostEvaluationBatchParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// PostEvaluationBatchHandler interface for that can handle valid post evaluation batch params
+	return *new(middleware.Responder)
 }
 
-// PostEvaluationBatchHandler interface for that can handle valid post evaluation batch params
 type PostEvaluationBatchHandler interface {
 	Handle(PostEvaluationBatchParams) middleware.Responder
 }
 
 // NewPostEvaluationBatch creates a new http.Handler for the post evaluation batch operation
 func NewPostEvaluationBatch(ctx *middleware.Context, handler PostEvaluationBatchHandler) *PostEvaluationBatch {
-	return &PostEvaluationBatch{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type PostEvaluationBatch struct {
 }
 
 func (o *PostEvaluationBatch) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewPostEvaluationBatchParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

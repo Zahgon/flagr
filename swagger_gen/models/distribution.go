@@ -8,10 +8,7 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // Distribution distribution
@@ -43,122 +40,44 @@ type Distribution struct {
 
 // Validate validates this distribution
 func (m *Distribution) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePercent(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVariantID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVariantKey(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Distribution) validateID(formats strfmt.Registry) error {
-	if swag.IsZero(m.ID) { // not required
-		return nil
-	}
-
-	if err := validate.MinimumInt("id", "body", m.ID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
+	// not required
 }
 
 func (m *Distribution) validatePercent(formats strfmt.Registry) error {
-
-	if err := validate.Required("percent", "body", m.Percent); err != nil {
-		return err
-	}
-
-	if err := validate.MinimumInt("percent", "body", *m.Percent, 0, false); err != nil {
-		return err
-	}
-
-	if err := validate.MaximumInt("percent", "body", *m.Percent, 100, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Distribution) validateVariantID(formats strfmt.Registry) error {
-
-	if err := validate.Required("variantID", "body", m.VariantID); err != nil {
-		return err
-	}
-
-	if err := validate.MinimumInt("variantID", "body", *m.VariantID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Distribution) validateVariantKey(formats strfmt.Registry) error {
-
-	if err := validate.Required("variantKey", "body", m.VariantKey); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("variantKey", "body", *m.VariantKey, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // ContextValidate validate this distribution based on the context it is used
 func (m *Distribution) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateID(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *Distribution) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
-
-	if err := validate.ReadOnly(ctx, "id", "body", m.ID); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *Distribution) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
-}
+func (m *Distribution) MarshalBinary() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalBinary interface implementation
-func (m *Distribution) UnmarshalBinary(b []byte) error {
-	var res Distribution
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *Distribution) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

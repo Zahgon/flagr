@@ -1,8 +1,6 @@
 package handler
 
 import (
-	"fmt"
-
 	"github.com/openflagr/flagr/swagger_gen/models"
 )
 
@@ -13,23 +11,13 @@ type Error struct {
 	Values     []any
 }
 
-func (e *Error) Error() string {
-	msg := fmt.Sprintf(e.Message, e.Values...)
-	return fmt.Sprintf("status_code: %d. %s", e.StatusCode, msg)
-}
+func (e *Error) Error() string { _ = "STUB: not implemented"; return "" }
 
 // NewError creates Error
 func NewError(statusCode int, msg string, values ...any) *Error {
-	return &Error{
-		StatusCode: statusCode,
-		Message:    msg,
-		Values:     values,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // ErrorMessage generates error messages
-func ErrorMessage(s string, data ...any) *models.Error {
-	return &models.Error{
-		Message: new(fmt.Sprintf(s, data...)),
-	}
-}
+func ErrorMessage(s string, data ...any) *models.Error { _ = "STUB: not implemented"; return nil }

@@ -30,33 +30,24 @@ type PutConstraintOK struct {
 }
 
 // NewPutConstraintOK creates PutConstraintOK with default headers values
-func NewPutConstraintOK() *PutConstraintOK {
-
-	return &PutConstraintOK{}
-}
+func NewPutConstraintOK() *PutConstraintOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the put constraint o k response
 func (o *PutConstraintOK) WithPayload(payload *models.Constraint) *PutConstraintOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the put constraint o k response
-func (o *PutConstraintOK) SetPayload(payload *models.Constraint) {
-	o.Payload = payload
-}
+func (o *PutConstraintOK) SetPayload(payload *models.Constraint) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *PutConstraintOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 PutConstraintDefault generic error response
@@ -73,46 +64,30 @@ type PutConstraintDefault struct {
 }
 
 // NewPutConstraintDefault creates PutConstraintDefault with default headers values
-func NewPutConstraintDefault(code int) *PutConstraintDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &PutConstraintDefault{
-		_statusCode: code,
-	}
-}
+func NewPutConstraintDefault(code int) *PutConstraintDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the put constraint default response
 func (o *PutConstraintDefault) WithStatusCode(code int) *PutConstraintDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the put constraint default response
-func (o *PutConstraintDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *PutConstraintDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the put constraint default response
 func (o *PutConstraintDefault) WithPayload(payload *models.Error) *PutConstraintDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the put constraint default response
-func (o *PutConstraintDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *PutConstraintDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *PutConstraintDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

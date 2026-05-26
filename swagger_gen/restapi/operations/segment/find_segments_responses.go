@@ -30,36 +30,26 @@ type FindSegmentsOK struct {
 }
 
 // NewFindSegmentsOK creates FindSegmentsOK with default headers values
-func NewFindSegmentsOK() *FindSegmentsOK {
-
-	return &FindSegmentsOK{}
-}
+func NewFindSegmentsOK() *FindSegmentsOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the find segments o k response
 func (o *FindSegmentsOK) WithPayload(payload []*models.Segment) *FindSegmentsOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find segments o k response
-func (o *FindSegmentsOK) SetPayload(payload []*models.Segment) {
-	o.Payload = payload
-}
+func (o *FindSegmentsOK) SetPayload(payload []*models.Segment) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *FindSegmentsOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	payload := o.Payload
-	if payload == nil {
-		// return empty array
-		payload = make([]*models.Segment, 0, 50)
-	}
-
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// return empty array
+
+// let the recovery middleware deal with this
 
 /*
 FindSegmentsDefault generic error response
@@ -76,46 +66,30 @@ type FindSegmentsDefault struct {
 }
 
 // NewFindSegmentsDefault creates FindSegmentsDefault with default headers values
-func NewFindSegmentsDefault(code int) *FindSegmentsDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &FindSegmentsDefault{
-		_statusCode: code,
-	}
-}
+func NewFindSegmentsDefault(code int) *FindSegmentsDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the find segments default response
 func (o *FindSegmentsDefault) WithStatusCode(code int) *FindSegmentsDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the find segments default response
-func (o *FindSegmentsDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *FindSegmentsDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the find segments default response
 func (o *FindSegmentsDefault) WithPayload(payload *models.Error) *FindSegmentsDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find segments default response
-func (o *FindSegmentsDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *FindSegmentsDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *FindSegmentsDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

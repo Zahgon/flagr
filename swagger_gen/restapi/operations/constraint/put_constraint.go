@@ -16,17 +16,20 @@ type PutConstraintHandlerFunc func(PutConstraintParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn PutConstraintHandlerFunc) Handle(params PutConstraintParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// PutConstraintHandler interface for that can handle valid put constraint params
+	return *new(middleware.Responder)
 }
 
-// PutConstraintHandler interface for that can handle valid put constraint params
 type PutConstraintHandler interface {
 	Handle(PutConstraintParams) middleware.Responder
 }
 
 // NewPutConstraint creates a new http.Handler for the put constraint operation
 func NewPutConstraint(ctx *middleware.Context, handler PutConstraintHandler) *PutConstraint {
-	return &PutConstraint{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type PutConstraint struct {
 }
 
 func (o *PutConstraint) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewPutConstraintParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

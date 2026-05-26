@@ -8,10 +8,7 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // PutVariantRequest put variant request
@@ -30,50 +27,27 @@ type PutVariantRequest struct {
 
 // Validate validates this put variant request
 func (m *PutVariantRequest) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateKey(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *PutVariantRequest) validateKey(formats strfmt.Registry) error {
-
-	if err := validate.Required("key", "body", m.Key); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("key", "body", *m.Key, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // ContextValidate validates this put variant request based on context it is used
 func (m *PutVariantRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	_ = "STUB: not implemented"
+
+	// MarshalBinary interface implementation
 	return nil
 }
 
-// MarshalBinary interface implementation
 func (m *PutVariantRequest) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UnmarshalBinary interface implementation
-func (m *PutVariantRequest) UnmarshalBinary(b []byte) error {
-	var res PutVariantRequest
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *PutVariantRequest) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

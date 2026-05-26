@@ -1,15 +1,11 @@
 package entity
 
 import (
-	"errors"
 	"fmt"
-
-	"encoding/json"
 
 	"github.com/openflagr/flagr/pkg/config"
 	"github.com/openflagr/flagr/pkg/notification"
 	"github.com/openflagr/flagr/pkg/util"
-	"github.com/sirupsen/logrus"
 	"gorm.io/gorm"
 )
 
@@ -24,93 +20,21 @@ type FlagSnapshot struct {
 
 // SaveFlagSnapshot saves the Flag Snapshot and sends a notification.
 func SaveFlagSnapshot(db *gorm.DB, flagID uint, updatedBy string, operation notification.Operation, componentType notification.ComponentType, componentID uint, componentKey string) {
-	tx := db.Begin()
-	f := &Flag{}
-	// Use Unscoped to include soft-deleted flags. This is necessary for:
-	// 1. Delete operations: we need to snapshot the flag after it's been soft-deleted
-	// 2. Restore operations: we need to update the flag that was previously soft-deleted
-	// This is safe because flagID comes from validated request params and the operation
-	// is explicitly tracked (create/update/delete/restore).
-	if err := tx.Unscoped().First(f, flagID).Error; err != nil {
-		logrus.WithFields(logrus.Fields{
-			"err":    err,
-			"flagID": flagID,
-		}).Error("failed to find the flag when SaveFlagSnapshot")
-		return
-	}
-	f.Preload(tx)
-
-	b, err := json.Marshal(f)
-	if err != nil {
-		logrus.WithFields(logrus.Fields{
-			"err":    err,
-			"flagID": flagID,
-		}).Error("failed to marshal the flag into JSON when SaveFlagSnapshot")
-		return
-	}
-
-	fs := FlagSnapshot{FlagID: f.ID, UpdatedBy: updatedBy, Flag: b}
-	if err := tx.Create(&fs).Error; err != nil {
-		logrus.WithFields(logrus.Fields{
-			"err":    err,
-			"flagID": f.Model.ID,
-		}).Error("failed to save FlagSnapshot")
-		tx.Rollback()
-		return
-	}
-
-	f.UpdatedBy = updatedBy
-	f.SnapshotID = fs.ID
-
-	// Use Unscoped to update soft-deleted flags (e.g., after delete operation).
-	// Without Unscoped(), GORM would add "deleted_at IS NULL" condition and fail.
-	if err := tx.Unscoped().Save(f).Error; err != nil {
-		logrus.WithFields(logrus.Fields{
-			"err":            err,
-			"flagID":         f.Model.ID,
-			"flagSnapshotID": fs.Model.ID,
-		}).Error("failed to save Flag's UpdatedBy and SnapshotID")
-		tx.Rollback()
-		return
-	}
-
-	preFS := &FlagSnapshot{}
-	// Find the most recent snapshot before the current one (use Unscoped to include any soft-deleted).
-	// ErrRecordNotFound is expected for the first snapshot of a flag.
-	if err := tx.Unscoped().Where("flag_id = ? AND id < ?", flagID, fs.ID).Order("id desc").First(preFS).Error; err != nil && !errors.Is(err, gorm.ErrRecordNotFound) {
-		logrus.WithError(err).WithField("flagID", flagID).Warn("failed to find previous flag snapshot")
-	}
-
-	if err := tx.Commit().Error; err != nil {
-		tx.Rollback()
-		logrus.WithError(err).WithField("flagID", flagID).Error("failed to commit flag snapshot")
-		return
-	}
-
-	preValue := ""
-	postValue := ""
-	diff := ""
-
-	if config.Config.NotificationDetailedDiffEnabled {
-		preValue = string(preFS.Flag)
-		postValue = string(fs.Flag)
-		diff = notification.CalculateDiff(preValue, postValue)
-	}
-
-	logFlagSnapshotUpdate(flagID, updatedBy)
-	notification.SendNotification(notification.Notification{
-		Operation:     operation,
-		FlagID:        flagID,
-		FlagKey:       f.Key,
-		ComponentType: componentType,
-		ComponentID:   componentID,
-		ComponentKey:  componentKey,
-		PreValue:      preValue,
-		PostValue:     postValue,
-		Diff:          diff,
-		User:          updatedBy,
-	})
+	_ = "STUB: not implemented"
+	return
 }
+
+// Use Unscoped to include soft-deleted flags. This is necessary for:
+// 1. Delete operations: we need to snapshot the flag after it's been soft-deleted
+// 2. Restore operations: we need to update the flag that was previously soft-deleted
+// This is safe because flagID comes from validated request params and the operation
+// is explicitly tracked (create/update/delete/restore).
+
+// Use Unscoped to update soft-deleted flags (e.g., after delete operation).
+// Without Unscoped(), GORM would add "deleted_at IS NULL" condition and fail.
+
+// Find the most recent snapshot before the current one (use Unscoped to include any soft-deleted).
+// ErrRecordNotFound is expected for the first snapshot of a flag.
 
 var logFlagSnapshotUpdate = func(flagID uint, updatedBy string) {
 	if config.Global.StatsdClient == nil {

@@ -16,17 +16,20 @@ type PutFlagHandlerFunc func(PutFlagParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn PutFlagHandlerFunc) Handle(params PutFlagParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// PutFlagHandler interface for that can handle valid put flag params
+	return *new(middleware.Responder)
 }
 
-// PutFlagHandler interface for that can handle valid put flag params
 type PutFlagHandler interface {
 	Handle(PutFlagParams) middleware.Responder
 }
 
 // NewPutFlag creates a new http.Handler for the put flag operation
 func NewPutFlag(ctx *middleware.Context, handler PutFlagHandler) *PutFlag {
-	return &PutFlag{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type PutFlag struct {
 }
 
 func (o *PutFlag) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewPutFlagParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

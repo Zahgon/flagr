@@ -16,17 +16,20 @@ type FindAllTagsHandlerFunc func(FindAllTagsParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn FindAllTagsHandlerFunc) Handle(params FindAllTagsParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// FindAllTagsHandler interface for that can handle valid find all tags params
+	return *new(middleware.Responder)
 }
 
-// FindAllTagsHandler interface for that can handle valid find all tags params
 type FindAllTagsHandler interface {
 	Handle(FindAllTagsParams) middleware.Responder
 }
 
 // NewFindAllTags creates a new http.Handler for the find all tags operation
 func NewFindAllTags(ctx *middleware.Context, handler FindAllTagsHandler) *FindAllTags {
-	return &FindAllTags{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type FindAllTags struct {
 }
 
 func (o *FindAllTags) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewFindAllTagsParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

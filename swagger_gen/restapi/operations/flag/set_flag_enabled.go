@@ -16,17 +16,20 @@ type SetFlagEnabledHandlerFunc func(SetFlagEnabledParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn SetFlagEnabledHandlerFunc) Handle(params SetFlagEnabledParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// SetFlagEnabledHandler interface for that can handle valid set flag enabled params
+	return *new(middleware.Responder)
 }
 
-// SetFlagEnabledHandler interface for that can handle valid set flag enabled params
 type SetFlagEnabledHandler interface {
 	Handle(SetFlagEnabledParams) middleware.Responder
 }
 
 // NewSetFlagEnabled creates a new http.Handler for the set flag enabled operation
 func NewSetFlagEnabled(ctx *middleware.Context, handler SetFlagEnabledHandler) *SetFlagEnabled {
-	return &SetFlagEnabled{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type SetFlagEnabled struct {
 }
 
 func (o *SetFlagEnabled) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewSetFlagEnabledParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

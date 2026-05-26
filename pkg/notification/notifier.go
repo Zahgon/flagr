@@ -4,8 +4,6 @@ import (
 	"context"
 	"sync"
 	"time"
-
-	"github.com/openflagr/flagr/pkg/config"
 )
 
 type Notifier interface {
@@ -35,17 +33,17 @@ const (
 )
 
 type Notification struct {
-	Operation     Operation `json:"operation"`
-	FlagID        uint      `json:"flag_id"`
-	FlagKey       string    `json:"flag_key"`
+	Operation     Operation     `json:"operation"`
+	FlagID        uint          `json:"flag_id"`
+	FlagKey       string        `json:"flag_key"`
 	ComponentType ComponentType `json:"component_type,omitempty"`
-	ComponentID   uint      `json:"component_id,omitempty"`
-	ComponentKey  string    `json:"component_key,omitempty"`
-	PreValue      string    `json:"pre_value,omitempty"`
-	PostValue     string    `json:"post_value,omitempty"`
-	Diff          string    `json:"diff,omitempty"`
-	User          string    `json:"user,omitempty"`
-	Timestamp     time.Time `json:"timestamp"`
+	ComponentID   uint          `json:"component_id,omitempty"`
+	ComponentKey  string        `json:"component_key,omitempty"`
+	PreValue      string        `json:"pre_value,omitempty"`
+	PostValue     string        `json:"post_value,omitempty"`
+	Diff          string        `json:"diff,omitempty"`
+	User          string        `json:"user,omitempty"`
+	Timestamp     time.Time     `json:"timestamp"`
 }
 
 var (
@@ -58,31 +56,19 @@ var (
 // It initializes the notifiers on first call using sync.Once.
 // For testing, set Notifiers directly before calling GetNotifiers.
 func GetNotifiers() []Notifier {
+	_ = "STUB: not implemented"
 	// If already set (e.g., by tests), return immediately
-	if len(Notifiers) > 0 {
-		return Notifiers
-	}
-
-	once.Do(func() {
-		if config.Config.NotificationWebhookEnabled {
-			if wn := NewWebhookNotifier(); wn != nil {
-				Notifiers = append(Notifiers, wn)
-			}
-		}
-	})
-
-	return Notifiers
+	return nil
 }
 
 type nullNotifier struct{}
 
 func (n *nullNotifier) Send(ctx context.Context, notification Notification) error {
+	_ = "STUB: not implemented"
 	return nil
 }
 
-func (n *nullNotifier) Name() string {
-	return "null"
-}
+func (n *nullNotifier) Name() string { _ = "STUB: not implemented"; return "" }
 
 type MockNotifier struct {
 	sent      []Notification
@@ -90,39 +76,17 @@ type MockNotifier struct {
 	sendError error
 }
 
-func NewMockNotifier() *MockNotifier {
-	return &MockNotifier{
-		sent: make([]Notification, 0),
-	}
-}
+func NewMockNotifier() *MockNotifier { _ = "STUB: not implemented"; return nil }
 
 func (m *MockNotifier) Send(ctx context.Context, n Notification) error {
-	m.mu.Lock()
-	defer m.mu.Unlock()
-	m.sent = append(m.sent, n)
-	return m.sendError
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func (m *MockNotifier) Name() string {
-	return "mock"
-}
+func (m *MockNotifier) Name() string { _ = "STUB: not implemented"; return "" }
 
-func (m *MockNotifier) SetSendError(err error) {
-	m.mu.Lock()
-	defer m.mu.Unlock()
-	m.sendError = err
-}
+func (m *MockNotifier) SetSendError(err error) { _ = "STUB: not implemented"; return }
 
-func (m *MockNotifier) GetSentNotifications() []Notification {
-	m.mu.Lock()
-	defer m.mu.Unlock()
-	result := make([]Notification, len(m.sent))
-	copy(result, m.sent)
-	return result
-}
+func (m *MockNotifier) GetSentNotifications() []Notification { _ = "STUB: not implemented"; return nil }
 
-func (m *MockNotifier) ClearSent() {
-	m.mu.Lock()
-	defer m.mu.Unlock()
-	m.sent = make([]Notification, 0)
-}
+func (m *MockNotifier) ClearSent() { _ = "STUB: not implemented"; return }

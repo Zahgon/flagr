@@ -8,10 +8,7 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // CreateConstraintRequest create constraint request
@@ -38,84 +35,40 @@ type CreateConstraintRequest struct {
 
 // Validate validates this create constraint request
 func (m *CreateConstraintRequest) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateOperator(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateProperty(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateValue(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *CreateConstraintRequest) validateOperator(formats strfmt.Registry) error {
-
-	if err := validate.Required("operator", "body", m.Operator); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("operator", "body", *m.Operator, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *CreateConstraintRequest) validateProperty(formats strfmt.Registry) error {
-
-	if err := validate.Required("property", "body", m.Property); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("property", "body", *m.Property, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *CreateConstraintRequest) validateValue(formats strfmt.Registry) error {
-
-	if err := validate.Required("value", "body", m.Value); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("value", "body", *m.Value, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // ContextValidate validates this create constraint request based on context it is used
 func (m *CreateConstraintRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	_ = "STUB: not implemented"
+
+	// MarshalBinary interface implementation
 	return nil
 }
 
-// MarshalBinary interface implementation
 func (m *CreateConstraintRequest) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UnmarshalBinary interface implementation
 func (m *CreateConstraintRequest) UnmarshalBinary(b []byte) error {
-	var res CreateConstraintRequest
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
+	_ = "STUB: not implemented"
 	return nil
 }

@@ -16,17 +16,20 @@ type GetFlagSnapshotsHandlerFunc func(GetFlagSnapshotsParams) middleware.Respond
 
 // Handle executing the request and returning a response
 func (fn GetFlagSnapshotsHandlerFunc) Handle(params GetFlagSnapshotsParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// GetFlagSnapshotsHandler interface for that can handle valid get flag snapshots params
+	return *new(middleware.Responder)
 }
 
-// GetFlagSnapshotsHandler interface for that can handle valid get flag snapshots params
 type GetFlagSnapshotsHandler interface {
 	Handle(GetFlagSnapshotsParams) middleware.Responder
 }
 
 // NewGetFlagSnapshots creates a new http.Handler for the get flag snapshots operation
 func NewGetFlagSnapshots(ctx *middleware.Context, handler GetFlagSnapshotsHandler) *GetFlagSnapshots {
-	return &GetFlagSnapshots{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type GetFlagSnapshots struct {
 }
 
 func (o *GetFlagSnapshots) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewGetFlagSnapshotsParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

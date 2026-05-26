@@ -30,31 +30,24 @@ type GetExportEvalCacheJSONOK struct {
 }
 
 // NewGetExportEvalCacheJSONOK creates GetExportEvalCacheJSONOK with default headers values
-func NewGetExportEvalCacheJSONOK() *GetExportEvalCacheJSONOK {
-
-	return &GetExportEvalCacheJSONOK{}
-}
+func NewGetExportEvalCacheJSONOK() *GetExportEvalCacheJSONOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the get export eval cache Json o k response
 func (o *GetExportEvalCacheJSONOK) WithPayload(payload any) *GetExportEvalCacheJSONOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the get export eval cache Json o k response
-func (o *GetExportEvalCacheJSONOK) SetPayload(payload any) {
-	o.Payload = payload
-}
+func (o *GetExportEvalCacheJSONOK) SetPayload(payload any) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *GetExportEvalCacheJSONOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	payload := o.Payload
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 GetExportEvalCacheJSONDefault generic error response
@@ -72,45 +65,36 @@ type GetExportEvalCacheJSONDefault struct {
 
 // NewGetExportEvalCacheJSONDefault creates GetExportEvalCacheJSONDefault with default headers values
 func NewGetExportEvalCacheJSONDefault(code int) *GetExportEvalCacheJSONDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &GetExportEvalCacheJSONDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the get export eval cache JSON default response
 func (o *GetExportEvalCacheJSONDefault) WithStatusCode(code int) *GetExportEvalCacheJSONDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the get export eval cache JSON default response
-func (o *GetExportEvalCacheJSONDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *GetExportEvalCacheJSONDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the get export eval cache JSON default response
 func (o *GetExportEvalCacheJSONDefault) WithPayload(payload *models.Error) *GetExportEvalCacheJSONDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the get export eval cache JSON default response
 func (o *GetExportEvalCacheJSONDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *GetExportEvalCacheJSONDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

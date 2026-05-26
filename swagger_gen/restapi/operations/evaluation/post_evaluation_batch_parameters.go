@@ -6,14 +6,9 @@ package evaluation
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	stderrors "errors"
-	"io"
 	"net/http"
 
-	"github.com/go-openapi/errors"
-	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/go-openapi/validate"
 
 	"github.com/openflagr/flagr/swagger_gen/models"
 )
@@ -22,8 +17,8 @@ import (
 //
 // There are no default values defined in the spec.
 func NewPostEvaluationBatchParams() PostEvaluationBatchParams {
-
-	return PostEvaluationBatchParams{}
+	_ = "STUB: not implemented"
+	return *new(PostEvaluationBatchParams)
 }
 
 // PostEvaluationBatchParams contains all the bound params for the post evaluation batch operation
@@ -46,41 +41,8 @@ type PostEvaluationBatchParams struct {
 //
 // To ensure default values, the struct must have been initialized with NewPostEvaluationBatchParams() beforehand.
 func (o *PostEvaluationBatchParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
-	var res []error
-
-	o.HTTPRequest = r
-
-	if runtime.HasBody(r) {
-		defer func() {
-			_ = r.Body.Close()
-		}()
-		var body models.EvaluationBatchRequest
-		if err := route.Consumer.Consume(r.Body, &body); err != nil {
-			if stderrors.Is(err, io.EOF) {
-				res = append(res, errors.Required("body", "body", ""))
-			} else {
-				res = append(res, errors.NewParseError("body", "body", "", err))
-			}
-		} else {
-			// validate body object
-			if err := body.Validate(route.Formats); err != nil {
-				res = append(res, err)
-			}
-
-			ctx := validate.WithOperationRequest(r.Context())
-			if err := body.ContextValidate(ctx, route.Formats); err != nil {
-				res = append(res, err)
-			}
-
-			if len(res) == 0 {
-				o.Body = &body
-			}
-		}
-	} else {
-		res = append(res, errors.Required("body", "body", ""))
-	}
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// validate body object

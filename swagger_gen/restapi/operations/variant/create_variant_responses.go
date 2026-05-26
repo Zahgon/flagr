@@ -30,33 +30,24 @@ type CreateVariantOK struct {
 }
 
 // NewCreateVariantOK creates CreateVariantOK with default headers values
-func NewCreateVariantOK() *CreateVariantOK {
-
-	return &CreateVariantOK{}
-}
+func NewCreateVariantOK() *CreateVariantOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the create variant o k response
 func (o *CreateVariantOK) WithPayload(payload *models.Variant) *CreateVariantOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the create variant o k response
-func (o *CreateVariantOK) SetPayload(payload *models.Variant) {
-	o.Payload = payload
-}
+func (o *CreateVariantOK) SetPayload(payload *models.Variant) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *CreateVariantOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 CreateVariantDefault generic error response
@@ -73,46 +64,30 @@ type CreateVariantDefault struct {
 }
 
 // NewCreateVariantDefault creates CreateVariantDefault with default headers values
-func NewCreateVariantDefault(code int) *CreateVariantDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &CreateVariantDefault{
-		_statusCode: code,
-	}
-}
+func NewCreateVariantDefault(code int) *CreateVariantDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the create variant default response
 func (o *CreateVariantDefault) WithStatusCode(code int) *CreateVariantDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the create variant default response
-func (o *CreateVariantDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *CreateVariantDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the create variant default response
 func (o *CreateVariantDefault) WithPayload(payload *models.Error) *CreateVariantDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the create variant default response
-func (o *CreateVariantDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *CreateVariantDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *CreateVariantDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

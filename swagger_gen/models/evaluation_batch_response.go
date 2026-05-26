@@ -7,13 +7,8 @@ package models
 
 import (
 	"context"
-	stderrors "errors"
-	"strconv"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // EvaluationBatchResponse evaluation batch response
@@ -28,106 +23,38 @@ type EvaluationBatchResponse struct {
 
 // Validate validates this evaluation batch response
 func (m *EvaluationBatchResponse) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateEvaluationResults(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *EvaluationBatchResponse) validateEvaluationResults(formats strfmt.Registry) error {
-
-	if err := validate.Required("evaluationResults", "body", m.EvaluationResults); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.EvaluationResults); i++ {
-		if swag.IsZero(m.EvaluationResults[i]) { // not required
-			continue
-		}
-
-		if m.EvaluationResults[i] != nil {
-			if err := m.EvaluationResults[i].Validate(formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("evaluationResults" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("evaluationResults" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// not required
+
 // ContextValidate validate this evaluation batch response based on the context it is used
 func (m *EvaluationBatchResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateEvaluationResults(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *EvaluationBatchResponse) contextValidateEvaluationResults(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.EvaluationResults); i++ {
-
-		if m.EvaluationResults[i] != nil {
-
-			if swag.IsZero(m.EvaluationResults[i]) { // not required
-				return nil
-			}
-
-			if err := m.EvaluationResults[i].ContextValidate(ctx, formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("evaluationResults" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("evaluationResults" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// not required
+
 // MarshalBinary interface implementation
 func (m *EvaluationBatchResponse) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UnmarshalBinary interface implementation
 func (m *EvaluationBatchResponse) UnmarshalBinary(b []byte) error {
-	var res EvaluationBatchResponse
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
+	_ = "STUB: not implemented"
 	return nil
 }

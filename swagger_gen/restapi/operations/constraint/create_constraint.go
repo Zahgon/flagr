@@ -16,17 +16,20 @@ type CreateConstraintHandlerFunc func(CreateConstraintParams) middleware.Respond
 
 // Handle executing the request and returning a response
 func (fn CreateConstraintHandlerFunc) Handle(params CreateConstraintParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// CreateConstraintHandler interface for that can handle valid create constraint params
+	return *new(middleware.Responder)
 }
 
-// CreateConstraintHandler interface for that can handle valid create constraint params
 type CreateConstraintHandler interface {
 	Handle(CreateConstraintParams) middleware.Responder
 }
 
 // NewCreateConstraint creates a new http.Handler for the create constraint operation
 func NewCreateConstraint(ctx *middleware.Context, handler CreateConstraintHandler) *CreateConstraint {
-	return &CreateConstraint{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type CreateConstraint struct {
 }
 
 func (o *CreateConstraint) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewCreateConstraintParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

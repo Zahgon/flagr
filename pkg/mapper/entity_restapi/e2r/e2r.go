@@ -1,173 +1,64 @@
 package e2r
 
 import (
-	"time"
-
-	"encoding/json"
-
-	"github.com/go-openapi/strfmt"
 	"github.com/openflagr/flagr/pkg/entity"
 
 	"github.com/openflagr/flagr/swagger_gen/models"
 )
 
 // MapFlag maps flag
-func MapFlag(e *entity.Flag) (*models.Flag, error) {
-	r := &models.Flag{}
-	r.ID = int64(e.ID)
-	r.Key = e.Key
-	r.CreatedBy = e.CreatedBy
-	r.DataRecordsEnabled = new(e.DataRecordsEnabled)
-	r.EntityType = e.EntityType
-	r.Description = new(e.Description)
-	r.Notes = e.Notes
-	r.Enabled = new(e.Enabled)
-	r.UpdatedAt = strfmt.DateTime(e.UpdatedAt)
-	r.UpdatedBy = e.UpdatedBy
-	r.Segments = MapSegments(e.Segments)
-	r.Variants = MapVariants(e.Variants)
-	r.Tags = MapTags(e.Tags)
-
-	return r, nil
-}
+func MapFlag(e *entity.Flag) (*models.Flag, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // MapFlags maps flags
-func MapFlags(e []entity.Flag) ([]*models.Flag, error) {
-	ret := make([]*models.Flag, len(e))
-	for i, f := range e {
-		rf, err := MapFlag(&f)
-		if err != nil {
-			return nil, err
-		}
-		ret[i] = rf
-	}
-	return ret, nil
-}
+func MapFlags(e []entity.Flag) ([]*models.Flag, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // MapFlagSnapshot maps flag snapshot
 func MapFlagSnapshot(e *entity.FlagSnapshot) (*models.FlagSnapshot, error) {
-	ef := &entity.Flag{}
-	if err := json.Unmarshal(e.Flag, ef); err != nil {
-		return nil, err
-	}
-	f, err := MapFlag(ef)
-	if err != nil {
-		return nil, err
-	}
-	r := &models.FlagSnapshot{
-		Flag:      f,
-		ID:        int64(e.ID),
-		UpdatedBy: e.UpdatedBy,
-		UpdatedAt: new(e.UpdatedAt.UTC().Format(time.RFC3339)),
-	}
-	return r, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // MapFlagSnapshots maps flag snapshots
 func MapFlagSnapshots(e []entity.FlagSnapshot) ([]*models.FlagSnapshot, error) {
-	ret := make([]*models.FlagSnapshot, len(e))
-	for i, fs := range e {
-		rf, err := MapFlagSnapshot(&fs)
-		if err != nil {
-			return nil, err
-		}
-		ret[i] = rf
-	}
-	return ret, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // MapSegment maps segment
-func MapSegment(e *entity.Segment) *models.Segment {
-	r := &models.Segment{}
-	r.ID = int64(e.ID)
-	r.Description = new(e.Description)
-	r.Rank = new(int64(e.Rank))
-	r.RolloutPercent = new(int64(e.RolloutPercent))
-	r.Constraints = MapConstraints(e.Constraints)
-	r.Distributions = MapDistributions(e.Distributions)
-	return r
-}
+func MapSegment(e *entity.Segment) *models.Segment { _ = "STUB: not implemented"; return nil }
 
 // MapSegments maps segments
-func MapSegments(e []entity.Segment) []*models.Segment {
-	ret := make([]*models.Segment, len(e))
-	for i, s := range e {
-		ret[i] = MapSegment(&s)
-	}
-	return ret
-}
+func MapSegments(e []entity.Segment) []*models.Segment { _ = "STUB: not implemented"; return nil }
 
 // MapTagEntity maps tag entity
-func MapTag(e *entity.Tag) *models.Tag {
-	r := &models.Tag{}
-	r.ID = int64(e.ID)
-	r.Value = new(e.Value)
-	return r
-}
+func MapTag(e *entity.Tag) *models.Tag { _ = "STUB: not implemented"; return nil }
 
 // MapTags maps tags
-func MapTags(e []entity.Tag) []*models.Tag {
-	ret := make([]*models.Tag, len(e))
-	for i, s := range e {
-		ret[i] = MapTag(&s)
-	}
-	return ret
-}
+func MapTags(e []entity.Tag) []*models.Tag { _ = "STUB: not implemented"; return nil }
 
 // MapConstraint maps constraint
-func MapConstraint(e *entity.Constraint) *models.Constraint {
-	r := &models.Constraint{}
-	r.ID = int64(e.ID)
-	r.Property = new(e.Property)
-	r.Operator = new(e.Operator)
-	r.Value = new(e.Value)
-	return r
-}
+func MapConstraint(e *entity.Constraint) *models.Constraint { _ = "STUB: not implemented"; return nil }
 
 // MapConstraints maps constraints
 func MapConstraints(e []entity.Constraint) []*models.Constraint {
-	ret := make([]*models.Constraint, len(e))
-	for i, c := range e {
-		ret[i] = MapConstraint(&c)
-	}
-	return ret
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // MapDistribution maps to a distribution
 func MapDistribution(e *entity.Distribution) *models.Distribution {
-	r := &models.Distribution{
-		ID:         int64(e.ID),
-		Percent:    new(int64(e.Percent)),
-		VariantID:  new(int64(e.VariantID)),
-		VariantKey: new(e.VariantKey),
-	}
-	return r
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // MapDistributions maps distribution
 func MapDistributions(e []entity.Distribution) []*models.Distribution {
-	ret := make([]*models.Distribution, len(e))
-	for i, d := range e {
-		ret[i] = MapDistribution(&d)
-	}
-	return ret
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // MapVariant maps variant
-func MapVariant(e *entity.Variant) *models.Variant {
-	r := &models.Variant{
-		ID:         int64(e.ID),
-		Key:        new(e.Key),
-		Attachment: e.Attachment,
-	}
-	return r
-}
+func MapVariant(e *entity.Variant) *models.Variant { _ = "STUB: not implemented"; return nil }
 
 // MapVariants maps variant
-func MapVariants(e []entity.Variant) []*models.Variant {
-	ret := make([]*models.Variant, len(e))
-	for i, v := range e {
-		ret[i] = MapVariant(&v)
-	}
-	return ret
-}
+func MapVariants(e []entity.Variant) []*models.Variant { _ = "STUB: not implemented"; return nil }

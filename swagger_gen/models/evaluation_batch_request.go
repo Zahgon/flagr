@@ -8,13 +8,8 @@ package models
 import (
 	"context"
 	"encoding/json"
-	stderrors "errors"
-	"strconv"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // EvaluationBatchRequest evaluation batch request
@@ -49,135 +44,33 @@ type EvaluationBatchRequest struct {
 
 // Validate validates this evaluation batch request
 func (m *EvaluationBatchRequest) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateEntities(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFlagIDs(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFlagKeys(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFlagTags(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFlagTagsOperator(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *EvaluationBatchRequest) validateEntities(formats strfmt.Registry) error {
-
-	if err := validate.Required("entities", "body", m.Entities); err != nil {
-		return err
-	}
-
-	iEntitiesSize := int64(len(m.Entities))
-
-	if err := validate.MinItems("entities", "body", iEntitiesSize, 1); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Entities); i++ {
-		if swag.IsZero(m.Entities[i]) { // not required
-			continue
-		}
-
-		if m.Entities[i] != nil {
-			if err := m.Entities[i].Validate(formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// not required
+
 func (m *EvaluationBatchRequest) validateFlagIDs(formats strfmt.Registry) error {
-	if swag.IsZero(m.FlagIDs) { // not required
-		return nil
-	}
-
-	iFlagIDsSize := int64(len(m.FlagIDs))
-
-	if err := validate.MinItems("flagIDs", "body", iFlagIDsSize, 1); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.FlagIDs); i++ {
-
-		if err := validate.MinimumInt("flagIDs"+"."+strconv.Itoa(i), "body", m.FlagIDs[i], 1, false); err != nil {
-			return err
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
+	// not required
 }
 
 func (m *EvaluationBatchRequest) validateFlagKeys(formats strfmt.Registry) error {
-	if swag.IsZero(m.FlagKeys) { // not required
-		return nil
-	}
-
-	iFlagKeysSize := int64(len(m.FlagKeys))
-
-	if err := validate.MinItems("flagKeys", "body", iFlagKeysSize, 1); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.FlagKeys); i++ {
-
-		if err := validate.MinLength("flagKeys"+"."+strconv.Itoa(i), "body", m.FlagKeys[i], 1); err != nil {
-			return err
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
+	// not required
 }
 
 func (m *EvaluationBatchRequest) validateFlagTags(formats strfmt.Registry) error {
-	if swag.IsZero(m.FlagTags) { // not required
-		return nil
-	}
-
-	iFlagTagsSize := int64(len(m.FlagTags))
-
-	if err := validate.MinItems("flagTags", "body", iFlagTagsSize, 1); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.FlagTags); i++ {
-
-		if err := validate.MinLength("flagTags"+"."+strconv.Itoa(i), "body", m.FlagTags[i], 1); err != nil {
-			return err
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
+	// not required
 }
 
 var evaluationBatchRequestTypeFlagTagsOperatorPropEnum []any
@@ -203,82 +96,40 @@ const (
 
 // prop value enum
 func (m *EvaluationBatchRequest) validateFlagTagsOperatorEnum(path, location string, value string) error {
-	if err := validate.EnumCase(path, location, value, evaluationBatchRequestTypeFlagTagsOperatorPropEnum, true); err != nil {
-		return err
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *EvaluationBatchRequest) validateFlagTagsOperator(formats strfmt.Registry) error {
-	if swag.IsZero(m.FlagTagsOperator) { // not required
-		return nil
-	}
-
-	// value enum
-	if err := m.validateFlagTagsOperatorEnum("flagTagsOperator", "body", *m.FlagTagsOperator); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// not required
+
+// value enum
+
 // ContextValidate validate this evaluation batch request based on the context it is used
 func (m *EvaluationBatchRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateEntities(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *EvaluationBatchRequest) contextValidateEntities(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Entities); i++ {
-
-		if m.Entities[i] != nil {
-
-			if swag.IsZero(m.Entities[i]) { // not required
-				return nil
-			}
-
-			if err := m.Entities[i].ContextValidate(ctx, formats); err != nil {
-				ve := new(errors.Validation)
-				if stderrors.As(err, &ve) {
-					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
-				}
-				ce := new(errors.CompositeError)
-				if stderrors.As(err, &ce) {
-					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
-				}
-
-				return err
-			}
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// not required
+
 // MarshalBinary interface implementation
 func (m *EvaluationBatchRequest) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UnmarshalBinary interface implementation
 func (m *EvaluationBatchRequest) UnmarshalBinary(b []byte) error {
-	var res EvaluationBatchRequest
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
+	_ = "STUB: not implemented"
 	return nil
 }

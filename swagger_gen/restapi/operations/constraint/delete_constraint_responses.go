@@ -25,18 +25,15 @@ type DeleteConstraintOK struct {
 }
 
 // NewDeleteConstraintOK creates DeleteConstraintOK with default headers values
-func NewDeleteConstraintOK() *DeleteConstraintOK {
-
-	return &DeleteConstraintOK{}
-}
+func NewDeleteConstraintOK() *DeleteConstraintOK { _ = "STUB: not implemented"; return nil }
 
 // WriteResponse to the client
 func (o *DeleteConstraintOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.Header().Del(runtime.HeaderContentType) // Remove Content-Type on empty responses
-
-	rw.WriteHeader(200)
+	_ = "STUB: not implemented"
+	return
 }
+
+// Remove Content-Type on empty responses
 
 /*
 DeleteConstraintDefault generic error response
@@ -54,45 +51,36 @@ type DeleteConstraintDefault struct {
 
 // NewDeleteConstraintDefault creates DeleteConstraintDefault with default headers values
 func NewDeleteConstraintDefault(code int) *DeleteConstraintDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &DeleteConstraintDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the delete constraint default response
 func (o *DeleteConstraintDefault) WithStatusCode(code int) *DeleteConstraintDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the delete constraint default response
-func (o *DeleteConstraintDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *DeleteConstraintDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the delete constraint default response
 func (o *DeleteConstraintDefault) WithPayload(payload *models.Error) *DeleteConstraintDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the delete constraint default response
 func (o *DeleteConstraintDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *DeleteConstraintDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

@@ -16,17 +16,20 @@ type DeleteFlagHandlerFunc func(DeleteFlagParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn DeleteFlagHandlerFunc) Handle(params DeleteFlagParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// DeleteFlagHandler interface for that can handle valid delete flag params
+	return *new(middleware.Responder)
 }
 
-// DeleteFlagHandler interface for that can handle valid delete flag params
 type DeleteFlagHandler interface {
 	Handle(DeleteFlagParams) middleware.Responder
 }
 
 // NewDeleteFlag creates a new http.Handler for the delete flag operation
 func NewDeleteFlag(ctx *middleware.Context, handler DeleteFlagHandler) *DeleteFlag {
-	return &DeleteFlag{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type DeleteFlag struct {
 }
 
 func (o *DeleteFlag) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewDeleteFlagParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

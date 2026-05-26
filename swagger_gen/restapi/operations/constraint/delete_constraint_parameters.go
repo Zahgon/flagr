@@ -8,19 +8,16 @@ package constraint
 import (
 	"net/http"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // NewDeleteConstraintParams creates a new DeleteConstraintParams object
 //
 // There are no default values defined in the spec.
 func NewDeleteConstraintParams() DeleteConstraintParams {
-
-	return DeleteConstraintParams{}
+	_ = "STUB: not implemented"
+	return *new(DeleteConstraintParams)
 }
 
 // DeleteConstraintParams contains all the bound params for the delete constraint operation
@@ -58,125 +55,51 @@ type DeleteConstraintParams struct {
 //
 // To ensure default values, the struct must have been initialized with NewDeleteConstraintParams() beforehand.
 func (o *DeleteConstraintParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
-	var res []error
-
-	o.HTTPRequest = r
-
-	rConstraintID, rhkConstraintID, _ := route.Params.GetOK("constraintID")
-	if err := o.bindConstraintID(rConstraintID, rhkConstraintID, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	rFlagID, rhkFlagID, _ := route.Params.GetOK("flagID")
-	if err := o.bindFlagID(rFlagID, rhkFlagID, route.Formats); err != nil {
-		res = append(res, err)
-	}
-
-	rSegmentID, rhkSegmentID, _ := route.Params.GetOK("segmentID")
-	if err := o.bindSegmentID(rSegmentID, rhkSegmentID, route.Formats); err != nil {
-		res = append(res, err)
-	}
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // bindConstraintID binds and validates parameter ConstraintID from path.
 func (o *DeleteConstraintParams) bindConstraintID(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: true
-	// Parameter is provided by construction from the route
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("constraintID", "path", "int64", raw)
-	}
-	o.ConstraintID = value
-
-	if err := o.validateConstraintID(formats); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// Required: true
+// Parameter is provided by construction from the route
+
 // validateConstraintID carries out validations for parameter ConstraintID
 func (o *DeleteConstraintParams) validateConstraintID(formats strfmt.Registry) error {
-
-	if err := validate.MinimumInt("constraintID", "path", o.ConstraintID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // bindFlagID binds and validates parameter FlagID from path.
 func (o *DeleteConstraintParams) bindFlagID(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: true
-	// Parameter is provided by construction from the route
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("flagID", "path", "int64", raw)
-	}
-	o.FlagID = value
-
-	if err := o.validateFlagID(formats); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// Required: true
+// Parameter is provided by construction from the route
+
 // validateFlagID carries out validations for parameter FlagID
 func (o *DeleteConstraintParams) validateFlagID(formats strfmt.Registry) error {
-
-	if err := validate.MinimumInt("flagID", "path", o.FlagID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // bindSegmentID binds and validates parameter SegmentID from path.
 func (o *DeleteConstraintParams) bindSegmentID(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: true
-	// Parameter is provided by construction from the route
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("segmentID", "path", "int64", raw)
-	}
-	o.SegmentID = value
-
-	if err := o.validateSegmentID(formats); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// Required: true
+// Parameter is provided by construction from the route
+
 // validateSegmentID carries out validations for parameter SegmentID
 func (o *DeleteConstraintParams) validateSegmentID(formats strfmt.Registry) error {
-
-	if err := validate.MinimumInt("segmentID", "path", o.SegmentID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }

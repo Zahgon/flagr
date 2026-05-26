@@ -7,12 +7,8 @@ package models
 
 import (
 	"context"
-	"strconv"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // PutSegmentReorderRequest put segment reorder request
@@ -28,60 +24,30 @@ type PutSegmentReorderRequest struct {
 
 // Validate validates this put segment reorder request
 func (m *PutSegmentReorderRequest) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateSegmentIDs(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *PutSegmentReorderRequest) validateSegmentIDs(formats strfmt.Registry) error {
-
-	if err := validate.Required("segmentIDs", "body", m.SegmentIDs); err != nil {
-		return err
-	}
-
-	iSegmentIDsSize := int64(len(m.SegmentIDs))
-
-	if err := validate.MinItems("segmentIDs", "body", iSegmentIDsSize, 1); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.SegmentIDs); i++ {
-
-		if err := validate.MinimumInt("segmentIDs"+"."+strconv.Itoa(i), "body", m.SegmentIDs[i], 1, false); err != nil {
-			return err
-		}
-
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // ContextValidate validates this put segment reorder request based on context it is used
 func (m *PutSegmentReorderRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	_ = "STUB: not implemented"
+
+	// MarshalBinary interface implementation
 	return nil
 }
 
-// MarshalBinary interface implementation
 func (m *PutSegmentReorderRequest) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UnmarshalBinary interface implementation
 func (m *PutSegmentReorderRequest) UnmarshalBinary(b []byte) error {
-	var res PutSegmentReorderRequest
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
+	_ = "STUB: not implemented"
 	return nil
 }

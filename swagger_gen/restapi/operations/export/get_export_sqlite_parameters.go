@@ -8,19 +8,16 @@ package export
 import (
 	"net/http"
 
-	"github.com/go-openapi/errors"
-	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 )
 
 // NewGetExportSqliteParams creates a new GetExportSqliteParams object
 //
 // There are no default values defined in the spec.
 func NewGetExportSqliteParams() GetExportSqliteParams {
-
-	return GetExportSqliteParams{}
+	_ = "STUB: not implemented"
+	return *new(GetExportSqliteParams)
 }
 
 // GetExportSqliteParams contains all the bound params for the get export sqlite operation
@@ -43,40 +40,17 @@ type GetExportSqliteParams struct {
 //
 // To ensure default values, the struct must have been initialized with NewGetExportSqliteParams() beforehand.
 func (o *GetExportSqliteParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
-	var res []error
-
-	o.HTTPRequest = r
-	qs := runtime.Values(r.URL.Query())
-
-	qExcludeSnapshots, qhkExcludeSnapshots, _ := qs.GetOK("exclude_snapshots")
-	if err := o.bindExcludeSnapshots(qExcludeSnapshots, qhkExcludeSnapshots, route.Formats); err != nil {
-		res = append(res, err)
-	}
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // bindExcludeSnapshots binds and validates parameter ExcludeSnapshots from query.
 func (o *GetExportSqliteParams) bindExcludeSnapshots(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: false
-	// AllowEmptyValue: false
-
-	if raw == "" { // empty values pass all other validations
-		return nil
-	}
-
-	value, err := swag.ConvertBool(raw)
-	if err != nil {
-		return errors.InvalidType("exclude_snapshots", "query", "bool", raw)
-	}
-	o.ExcludeSnapshots = &value
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// Required: false
+// AllowEmptyValue: false
+
+// empty values pass all other validations

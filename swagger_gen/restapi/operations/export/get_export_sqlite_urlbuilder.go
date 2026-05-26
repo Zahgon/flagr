@@ -6,11 +6,7 @@ package export
 // Editing this file might prove futile when you re-run the generate command
 
 import (
-	"errors"
 	"net/url"
-	golangswaggerpaths "path"
-
-	"github.com/go-openapi/swag"
 )
 
 // GetExportSqliteURL generates an URL for the get export sqlite operation
@@ -26,80 +22,39 @@ type GetExportSqliteURL struct {
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
 func (o *GetExportSqliteURL) WithBasePath(bp string) *GetExportSqliteURL {
-	o.SetBasePath(bp)
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
 func (o *GetExportSqliteURL) SetBasePath(bp string) {
-	o._basePath = bp
+	_ = "STUB: not implemented"
+
+	// Build a url path and query string
+	return
 }
 
-// Build a url path and query string
-func (o *GetExportSqliteURL) Build() (*url.URL, error) {
-	var _result url.URL
-
-	var _path = "/export/sqlite"
-
-	_basePath := o._basePath
-	if _basePath == "" {
-		_basePath = "/api/v1"
-	}
-	_result.Path = golangswaggerpaths.Join(_basePath, _path)
-
-	qs := make(url.Values)
-
-	var excludeSnapshotsQ string
-	if o.ExcludeSnapshots != nil {
-		excludeSnapshotsQ = swag.FormatBool(*o.ExcludeSnapshots)
-	}
-	if excludeSnapshotsQ != "" {
-		qs.Set("exclude_snapshots", excludeSnapshotsQ)
-	}
-
-	_result.RawQuery = qs.Encode()
-
-	return &_result, nil
-}
+func (o *GetExportSqliteURL) Build() (*url.URL, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // Must is a helper function to panic when the url builder returns an error
 func (o *GetExportSqliteURL) Must(u *url.URL, err error) *url.URL {
-	if err != nil {
-		panic(err)
-	}
-	if u == nil {
-		panic("url can't be nil")
-	}
-	return u
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // String returns the string representation of the path with query string
-func (o *GetExportSqliteURL) String() string {
-	return o.Must(o.Build()).String()
-}
+func (o *GetExportSqliteURL) String() string { _ = "STUB: not implemented"; return "" }
 
 // BuildFull builds a full url with scheme, host, path and query string
 func (o *GetExportSqliteURL) BuildFull(scheme, host string) (*url.URL, error) {
-	if scheme == "" {
-		return nil, errors.New("scheme is required for a full url on GetExportSqliteURL")
-	}
-	if host == "" {
-		return nil, errors.New("host is required for a full url on GetExportSqliteURL")
-	}
-
-	base, err := o.Build()
-	if err != nil {
-		return nil, err
-	}
-
-	base.Scheme = scheme
-	base.Host = host
-	return base, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // StringFull returns the string representation of a complete url
 func (o *GetExportSqliteURL) StringFull(scheme, host string) string {
-	return o.Must(o.BuildFull(scheme, host)).String()
+	_ = "STUB: not implemented"
+	return ""
 }

@@ -6,11 +6,7 @@ package flag
 // Editing this file might prove futile when you re-run the generate command
 
 import (
-	"errors"
 	"net/url"
-	golangswaggerpaths "path"
-
-	"github.com/go-openapi/swag"
 )
 
 // FindFlagsURL generates an URL for the find flags operation
@@ -33,145 +29,31 @@ type FindFlagsURL struct {
 // WithBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
-func (o *FindFlagsURL) WithBasePath(bp string) *FindFlagsURL {
-	o.SetBasePath(bp)
-	return o
-}
+func (o *FindFlagsURL) WithBasePath(bp string) *FindFlagsURL { _ = "STUB: not implemented"; return nil }
 
 // SetBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
 func (o *FindFlagsURL) SetBasePath(bp string) {
-	o._basePath = bp
+	_ = "STUB: not implemented"
+
+	// Build a url path and query string
+	return
 }
 
-// Build a url path and query string
-func (o *FindFlagsURL) Build() (*url.URL, error) {
-	var _result url.URL
-
-	var _path = "/flags"
-
-	_basePath := o._basePath
-	if _basePath == "" {
-		_basePath = "/api/v1"
-	}
-	_result.Path = golangswaggerpaths.Join(_basePath, _path)
-
-	qs := make(url.Values)
-
-	var deletedQ string
-	if o.Deleted != nil {
-		deletedQ = swag.FormatBool(*o.Deleted)
-	}
-	if deletedQ != "" {
-		qs.Set("deleted", deletedQ)
-	}
-
-	var descriptionQ string
-	if o.Description != nil {
-		descriptionQ = *o.Description
-	}
-	if descriptionQ != "" {
-		qs.Set("description", descriptionQ)
-	}
-
-	var descriptionLikeQ string
-	if o.DescriptionLike != nil {
-		descriptionLikeQ = *o.DescriptionLike
-	}
-	if descriptionLikeQ != "" {
-		qs.Set("description_like", descriptionLikeQ)
-	}
-
-	var enabledQ string
-	if o.Enabled != nil {
-		enabledQ = swag.FormatBool(*o.Enabled)
-	}
-	if enabledQ != "" {
-		qs.Set("enabled", enabledQ)
-	}
-
-	var keyQ string
-	if o.Key != nil {
-		keyQ = *o.Key
-	}
-	if keyQ != "" {
-		qs.Set("key", keyQ)
-	}
-
-	var limitQ string
-	if o.Limit != nil {
-		limitQ = swag.FormatInt64(*o.Limit)
-	}
-	if limitQ != "" {
-		qs.Set("limit", limitQ)
-	}
-
-	var offsetQ string
-	if o.Offset != nil {
-		offsetQ = swag.FormatInt64(*o.Offset)
-	}
-	if offsetQ != "" {
-		qs.Set("offset", offsetQ)
-	}
-
-	var preloadQ string
-	if o.Preload != nil {
-		preloadQ = swag.FormatBool(*o.Preload)
-	}
-	if preloadQ != "" {
-		qs.Set("preload", preloadQ)
-	}
-
-	var tagsQ string
-	if o.Tags != nil {
-		tagsQ = *o.Tags
-	}
-	if tagsQ != "" {
-		qs.Set("tags", tagsQ)
-	}
-
-	_result.RawQuery = qs.Encode()
-
-	return &_result, nil
-}
+func (o *FindFlagsURL) Build() (*url.URL, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // Must is a helper function to panic when the url builder returns an error
-func (o *FindFlagsURL) Must(u *url.URL, err error) *url.URL {
-	if err != nil {
-		panic(err)
-	}
-	if u == nil {
-		panic("url can't be nil")
-	}
-	return u
-}
+func (o *FindFlagsURL) Must(u *url.URL, err error) *url.URL { _ = "STUB: not implemented"; return nil }
 
 // String returns the string representation of the path with query string
-func (o *FindFlagsURL) String() string {
-	return o.Must(o.Build()).String()
-}
+func (o *FindFlagsURL) String() string { _ = "STUB: not implemented"; return "" }
 
 // BuildFull builds a full url with scheme, host, path and query string
 func (o *FindFlagsURL) BuildFull(scheme, host string) (*url.URL, error) {
-	if scheme == "" {
-		return nil, errors.New("scheme is required for a full url on FindFlagsURL")
-	}
-	if host == "" {
-		return nil, errors.New("host is required for a full url on FindFlagsURL")
-	}
-
-	base, err := o.Build()
-	if err != nil {
-		return nil, err
-	}
-
-	base.Scheme = scheme
-	base.Host = host
-	return base, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // StringFull returns the string representation of a complete url
-func (o *FindFlagsURL) StringFull(scheme, host string) string {
-	return o.Must(o.BuildFull(scheme, host)).String()
-}
+func (o *FindFlagsURL) StringFull(scheme, host string) string { _ = "STUB: not implemented"; return "" }

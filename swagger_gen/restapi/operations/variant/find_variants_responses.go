@@ -30,36 +30,26 @@ type FindVariantsOK struct {
 }
 
 // NewFindVariantsOK creates FindVariantsOK with default headers values
-func NewFindVariantsOK() *FindVariantsOK {
-
-	return &FindVariantsOK{}
-}
+func NewFindVariantsOK() *FindVariantsOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the find variants o k response
 func (o *FindVariantsOK) WithPayload(payload []*models.Variant) *FindVariantsOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find variants o k response
-func (o *FindVariantsOK) SetPayload(payload []*models.Variant) {
-	o.Payload = payload
-}
+func (o *FindVariantsOK) SetPayload(payload []*models.Variant) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *FindVariantsOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	payload := o.Payload
-	if payload == nil {
-		// return empty array
-		payload = make([]*models.Variant, 0, 50)
-	}
-
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// return empty array
+
+// let the recovery middleware deal with this
 
 /*
 FindVariantsDefault generic error response
@@ -76,46 +66,30 @@ type FindVariantsDefault struct {
 }
 
 // NewFindVariantsDefault creates FindVariantsDefault with default headers values
-func NewFindVariantsDefault(code int) *FindVariantsDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &FindVariantsDefault{
-		_statusCode: code,
-	}
-}
+func NewFindVariantsDefault(code int) *FindVariantsDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the find variants default response
 func (o *FindVariantsDefault) WithStatusCode(code int) *FindVariantsDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the find variants default response
-func (o *FindVariantsDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *FindVariantsDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the find variants default response
 func (o *FindVariantsDefault) WithPayload(payload *models.Error) *FindVariantsDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the find variants default response
-func (o *FindVariantsDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *FindVariantsDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *FindVariantsDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

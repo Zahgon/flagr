@@ -30,33 +30,24 @@ type PutSegmentOK struct {
 }
 
 // NewPutSegmentOK creates PutSegmentOK with default headers values
-func NewPutSegmentOK() *PutSegmentOK {
-
-	return &PutSegmentOK{}
-}
+func NewPutSegmentOK() *PutSegmentOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the put segment o k response
 func (o *PutSegmentOK) WithPayload(payload *models.Segment) *PutSegmentOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the put segment o k response
-func (o *PutSegmentOK) SetPayload(payload *models.Segment) {
-	o.Payload = payload
-}
+func (o *PutSegmentOK) SetPayload(payload *models.Segment) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *PutSegmentOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 PutSegmentDefault generic error response
@@ -73,46 +64,30 @@ type PutSegmentDefault struct {
 }
 
 // NewPutSegmentDefault creates PutSegmentDefault with default headers values
-func NewPutSegmentDefault(code int) *PutSegmentDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &PutSegmentDefault{
-		_statusCode: code,
-	}
-}
+func NewPutSegmentDefault(code int) *PutSegmentDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the put segment default response
 func (o *PutSegmentDefault) WithStatusCode(code int) *PutSegmentDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the put segment default response
-func (o *PutSegmentDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *PutSegmentDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the put segment default response
 func (o *PutSegmentDefault) WithPayload(payload *models.Error) *PutSegmentDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the put segment default response
-func (o *PutSegmentDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *PutSegmentDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *PutSegmentDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

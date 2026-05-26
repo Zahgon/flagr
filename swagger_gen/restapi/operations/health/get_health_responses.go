@@ -30,33 +30,24 @@ type GetHealthOK struct {
 }
 
 // NewGetHealthOK creates GetHealthOK with default headers values
-func NewGetHealthOK() *GetHealthOK {
-
-	return &GetHealthOK{}
-}
+func NewGetHealthOK() *GetHealthOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the get health o k response
 func (o *GetHealthOK) WithPayload(payload *models.Health) *GetHealthOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the get health o k response
-func (o *GetHealthOK) SetPayload(payload *models.Health) {
-	o.Payload = payload
-}
+func (o *GetHealthOK) SetPayload(payload *models.Health) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *GetHealthOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 GetHealthDefault generic error response
@@ -73,46 +64,30 @@ type GetHealthDefault struct {
 }
 
 // NewGetHealthDefault creates GetHealthDefault with default headers values
-func NewGetHealthDefault(code int) *GetHealthDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &GetHealthDefault{
-		_statusCode: code,
-	}
-}
+func NewGetHealthDefault(code int) *GetHealthDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the get health default response
 func (o *GetHealthDefault) WithStatusCode(code int) *GetHealthDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the get health default response
-func (o *GetHealthDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *GetHealthDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the get health default response
 func (o *GetHealthDefault) WithPayload(payload *models.Error) *GetHealthDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the get health default response
-func (o *GetHealthDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *GetHealthDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *GetHealthDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

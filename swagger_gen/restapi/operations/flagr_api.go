@@ -6,11 +6,8 @@ package operations
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"fmt"
 	"net/http"
-	"strings"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/loads"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
@@ -31,227 +28,7 @@ import (
 )
 
 // NewFlagrAPI creates a new Flagr instance
-func NewFlagrAPI(spec *loads.Document) *FlagrAPI {
-	return &FlagrAPI{
-		handlers:            make(map[string]map[string]http.Handler),
-		formats:             strfmt.Default,
-		defaultConsumes:     "application/json",
-		defaultProduces:     "application/json",
-		customConsumers:     make(map[string]runtime.Consumer),
-		customProducers:     make(map[string]runtime.Producer),
-		PreServerShutdown:   func() {},
-		ServerShutdown:      func() {},
-		spec:                spec,
-		useSwaggerUI:        false,
-		ServeError:          errors.ServeError,
-		BasicAuthenticator:  security.BasicAuth,
-		APIKeyAuthenticator: security.APIKeyAuth,
-		BearerAuthenticator: security.BearerAuth,
-
-		JSONConsumer: runtime.JSONConsumer(),
-
-		BinProducer:  runtime.ByteStreamProducer(),
-		JSONProducer: runtime.JSONProducer(),
-
-		ConstraintCreateConstraintHandler: constraint.CreateConstraintHandlerFunc(func(params constraint.CreateConstraintParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation constraint.CreateConstraint has not yet been implemented")
-		}),
-
-		FlagCreateFlagHandler: flag.CreateFlagHandlerFunc(func(params flag.CreateFlagParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation flag.CreateFlag has not yet been implemented")
-		}),
-
-		SegmentCreateSegmentHandler: segment.CreateSegmentHandlerFunc(func(params segment.CreateSegmentParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation segment.CreateSegment has not yet been implemented")
-		}),
-
-		TagCreateTagHandler: tag.CreateTagHandlerFunc(func(params tag.CreateTagParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation tag.CreateTag has not yet been implemented")
-		}),
-
-		VariantCreateVariantHandler: variant.CreateVariantHandlerFunc(func(params variant.CreateVariantParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation variant.CreateVariant has not yet been implemented")
-		}),
-
-		ConstraintDeleteConstraintHandler: constraint.DeleteConstraintHandlerFunc(func(params constraint.DeleteConstraintParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation constraint.DeleteConstraint has not yet been implemented")
-		}),
-
-		FlagDeleteFlagHandler: flag.DeleteFlagHandlerFunc(func(params flag.DeleteFlagParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation flag.DeleteFlag has not yet been implemented")
-		}),
-
-		SegmentDeleteSegmentHandler: segment.DeleteSegmentHandlerFunc(func(params segment.DeleteSegmentParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation segment.DeleteSegment has not yet been implemented")
-		}),
-
-		TagDeleteTagHandler: tag.DeleteTagHandlerFunc(func(params tag.DeleteTagParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation tag.DeleteTag has not yet been implemented")
-		}),
-
-		VariantDeleteVariantHandler: variant.DeleteVariantHandlerFunc(func(params variant.DeleteVariantParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation variant.DeleteVariant has not yet been implemented")
-		}),
-
-		TagFindAllTagsHandler: tag.FindAllTagsHandlerFunc(func(params tag.FindAllTagsParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation tag.FindAllTags has not yet been implemented")
-		}),
-
-		ConstraintFindConstraintsHandler: constraint.FindConstraintsHandlerFunc(func(params constraint.FindConstraintsParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation constraint.FindConstraints has not yet been implemented")
-		}),
-
-		DistributionFindDistributionsHandler: distribution.FindDistributionsHandlerFunc(func(params distribution.FindDistributionsParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation distribution.FindDistributions has not yet been implemented")
-		}),
-
-		FlagFindFlagsHandler: flag.FindFlagsHandlerFunc(func(params flag.FindFlagsParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation flag.FindFlags has not yet been implemented")
-		}),
-
-		SegmentFindSegmentsHandler: segment.FindSegmentsHandlerFunc(func(params segment.FindSegmentsParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation segment.FindSegments has not yet been implemented")
-		}),
-
-		TagFindTagsHandler: tag.FindTagsHandlerFunc(func(params tag.FindTagsParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation tag.FindTags has not yet been implemented")
-		}),
-
-		VariantFindVariantsHandler: variant.FindVariantsHandlerFunc(func(params variant.FindVariantsParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation variant.FindVariants has not yet been implemented")
-		}),
-
-		ExportGetExportEvalCacheJSONHandler: export.GetExportEvalCacheJSONHandlerFunc(func(params export.GetExportEvalCacheJSONParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation export.GetExportEvalCacheJSON has not yet been implemented")
-		}),
-
-		ExportGetExportSqliteHandler: export.GetExportSqliteHandlerFunc(func(params export.GetExportSqliteParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation export.GetExportSqlite has not yet been implemented")
-		}),
-
-		FlagGetFlagHandler: flag.GetFlagHandlerFunc(func(params flag.GetFlagParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation flag.GetFlag has not yet been implemented")
-		}),
-
-		FlagGetFlagEntityTypesHandler: flag.GetFlagEntityTypesHandlerFunc(func(params flag.GetFlagEntityTypesParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation flag.GetFlagEntityTypes has not yet been implemented")
-		}),
-
-		FlagGetFlagSnapshotsHandler: flag.GetFlagSnapshotsHandlerFunc(func(params flag.GetFlagSnapshotsParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation flag.GetFlagSnapshots has not yet been implemented")
-		}),
-
-		HealthGetHealthHandler: health.GetHealthHandlerFunc(func(params health.GetHealthParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation health.GetHealth has not yet been implemented")
-		}),
-
-		EvaluationPostEvaluationHandler: evaluation.PostEvaluationHandlerFunc(func(params evaluation.PostEvaluationParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation evaluation.PostEvaluation has not yet been implemented")
-		}),
-
-		EvaluationPostEvaluationBatchHandler: evaluation.PostEvaluationBatchHandlerFunc(func(params evaluation.PostEvaluationBatchParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation evaluation.PostEvaluationBatch has not yet been implemented")
-		}),
-
-		ConstraintPutConstraintHandler: constraint.PutConstraintHandlerFunc(func(params constraint.PutConstraintParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation constraint.PutConstraint has not yet been implemented")
-		}),
-
-		DistributionPutDistributionsHandler: distribution.PutDistributionsHandlerFunc(func(params distribution.PutDistributionsParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation distribution.PutDistributions has not yet been implemented")
-		}),
-
-		FlagPutFlagHandler: flag.PutFlagHandlerFunc(func(params flag.PutFlagParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation flag.PutFlag has not yet been implemented")
-		}),
-
-		SegmentPutSegmentHandler: segment.PutSegmentHandlerFunc(func(params segment.PutSegmentParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation segment.PutSegment has not yet been implemented")
-		}),
-
-		SegmentPutSegmentsReorderHandler: segment.PutSegmentsReorderHandlerFunc(func(params segment.PutSegmentsReorderParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation segment.PutSegmentsReorder has not yet been implemented")
-		}),
-
-		VariantPutVariantHandler: variant.PutVariantHandlerFunc(func(params variant.PutVariantParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation variant.PutVariant has not yet been implemented")
-		}),
-
-		FlagRestoreFlagHandler: flag.RestoreFlagHandlerFunc(func(params flag.RestoreFlagParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation flag.RestoreFlag has not yet been implemented")
-		}),
-
-		FlagSetFlagEnabledHandler: flag.SetFlagEnabledHandlerFunc(func(params flag.SetFlagEnabledParams) middleware.Responder {
-			_ = params
-
-			return middleware.NotImplemented("operation flag.SetFlagEnabled has not yet been implemented")
-		}),
-	}
-}
+func NewFlagrAPI(spec *loads.Document) *FlagrAPI { _ = "STUB: not implemented"; return nil }
 
 /*FlagrAPI Flagr is a feature flagging, A/B testing and dynamic configuration microservice. The base path for all the APIs is "/api/v1".
  */
@@ -377,430 +154,122 @@ type FlagrAPI struct {
 }
 
 // UseRedoc for documentation at /docs
-func (o *FlagrAPI) UseRedoc() {
-	o.useSwaggerUI = false
-}
+func (o *FlagrAPI) UseRedoc() { _ = "STUB: not implemented"; return }
 
 // UseSwaggerUI for documentation at /docs
-func (o *FlagrAPI) UseSwaggerUI() {
-	o.useSwaggerUI = true
-}
+func (o *FlagrAPI) UseSwaggerUI() { _ = "STUB: not implemented"; return }
 
 // SetDefaultProduces sets the default produces media type
-func (o *FlagrAPI) SetDefaultProduces(mediaType string) {
-	o.defaultProduces = mediaType
-}
+func (o *FlagrAPI) SetDefaultProduces(mediaType string) { _ = "STUB: not implemented"; return }
 
 // SetDefaultConsumes returns the default consumes media type
-func (o *FlagrAPI) SetDefaultConsumes(mediaType string) {
-	o.defaultConsumes = mediaType
-}
+func (o *FlagrAPI) SetDefaultConsumes(mediaType string) { _ = "STUB: not implemented"; return }
 
 // SetSpec sets a spec that will be served for the clients.
 func (o *FlagrAPI) SetSpec(spec *loads.Document) {
-	o.spec = spec
+	_ = "STUB: not implemented"
+
+	// DefaultProduces returns the default produces media type
+	return
 }
 
-// DefaultProduces returns the default produces media type
-func (o *FlagrAPI) DefaultProduces() string {
-	return o.defaultProduces
-}
+func (o *FlagrAPI) DefaultProduces() string { _ = "STUB: not implemented"; return "" }
 
 // DefaultConsumes returns the default consumes media type
-func (o *FlagrAPI) DefaultConsumes() string {
-	return o.defaultConsumes
-}
+func (o *FlagrAPI) DefaultConsumes() string { _ = "STUB: not implemented"; return "" }
 
 // Formats returns the registered string formats
 func (o *FlagrAPI) Formats() strfmt.Registry {
-	return o.formats
+	_ = "STUB: not implemented"
+
+	// RegisterFormat registers a custom format validator
+	return *new(strfmt.Registry)
 }
 
-// RegisterFormat registers a custom format validator
 func (o *FlagrAPI) RegisterFormat(name string, format strfmt.Format, validator strfmt.Validator) {
-	o.formats.Add(name, format, validator)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Validate validates the registrations in the FlagrAPI
-func (o *FlagrAPI) Validate() error {
-	var unregistered []string
-
-	if o.JSONConsumer == nil {
-		unregistered = append(unregistered, "JSONConsumer")
-	}
-
-	if o.BinProducer == nil {
-		unregistered = append(unregistered, "BinProducer")
-	}
-	if o.JSONProducer == nil {
-		unregistered = append(unregistered, "JSONProducer")
-	}
-
-	if o.ConstraintCreateConstraintHandler == nil {
-		unregistered = append(unregistered, "constraint.CreateConstraintHandler")
-	}
-	if o.FlagCreateFlagHandler == nil {
-		unregistered = append(unregistered, "flag.CreateFlagHandler")
-	}
-	if o.SegmentCreateSegmentHandler == nil {
-		unregistered = append(unregistered, "segment.CreateSegmentHandler")
-	}
-	if o.TagCreateTagHandler == nil {
-		unregistered = append(unregistered, "tag.CreateTagHandler")
-	}
-	if o.VariantCreateVariantHandler == nil {
-		unregistered = append(unregistered, "variant.CreateVariantHandler")
-	}
-	if o.ConstraintDeleteConstraintHandler == nil {
-		unregistered = append(unregistered, "constraint.DeleteConstraintHandler")
-	}
-	if o.FlagDeleteFlagHandler == nil {
-		unregistered = append(unregistered, "flag.DeleteFlagHandler")
-	}
-	if o.SegmentDeleteSegmentHandler == nil {
-		unregistered = append(unregistered, "segment.DeleteSegmentHandler")
-	}
-	if o.TagDeleteTagHandler == nil {
-		unregistered = append(unregistered, "tag.DeleteTagHandler")
-	}
-	if o.VariantDeleteVariantHandler == nil {
-		unregistered = append(unregistered, "variant.DeleteVariantHandler")
-	}
-	if o.TagFindAllTagsHandler == nil {
-		unregistered = append(unregistered, "tag.FindAllTagsHandler")
-	}
-	if o.ConstraintFindConstraintsHandler == nil {
-		unregistered = append(unregistered, "constraint.FindConstraintsHandler")
-	}
-	if o.DistributionFindDistributionsHandler == nil {
-		unregistered = append(unregistered, "distribution.FindDistributionsHandler")
-	}
-	if o.FlagFindFlagsHandler == nil {
-		unregistered = append(unregistered, "flag.FindFlagsHandler")
-	}
-	if o.SegmentFindSegmentsHandler == nil {
-		unregistered = append(unregistered, "segment.FindSegmentsHandler")
-	}
-	if o.TagFindTagsHandler == nil {
-		unregistered = append(unregistered, "tag.FindTagsHandler")
-	}
-	if o.VariantFindVariantsHandler == nil {
-		unregistered = append(unregistered, "variant.FindVariantsHandler")
-	}
-	if o.ExportGetExportEvalCacheJSONHandler == nil {
-		unregistered = append(unregistered, "export.GetExportEvalCacheJSONHandler")
-	}
-	if o.ExportGetExportSqliteHandler == nil {
-		unregistered = append(unregistered, "export.GetExportSqliteHandler")
-	}
-	if o.FlagGetFlagHandler == nil {
-		unregistered = append(unregistered, "flag.GetFlagHandler")
-	}
-	if o.FlagGetFlagEntityTypesHandler == nil {
-		unregistered = append(unregistered, "flag.GetFlagEntityTypesHandler")
-	}
-	if o.FlagGetFlagSnapshotsHandler == nil {
-		unregistered = append(unregistered, "flag.GetFlagSnapshotsHandler")
-	}
-	if o.HealthGetHealthHandler == nil {
-		unregistered = append(unregistered, "health.GetHealthHandler")
-	}
-	if o.EvaluationPostEvaluationHandler == nil {
-		unregistered = append(unregistered, "evaluation.PostEvaluationHandler")
-	}
-	if o.EvaluationPostEvaluationBatchHandler == nil {
-		unregistered = append(unregistered, "evaluation.PostEvaluationBatchHandler")
-	}
-	if o.ConstraintPutConstraintHandler == nil {
-		unregistered = append(unregistered, "constraint.PutConstraintHandler")
-	}
-	if o.DistributionPutDistributionsHandler == nil {
-		unregistered = append(unregistered, "distribution.PutDistributionsHandler")
-	}
-	if o.FlagPutFlagHandler == nil {
-		unregistered = append(unregistered, "flag.PutFlagHandler")
-	}
-	if o.SegmentPutSegmentHandler == nil {
-		unregistered = append(unregistered, "segment.PutSegmentHandler")
-	}
-	if o.SegmentPutSegmentsReorderHandler == nil {
-		unregistered = append(unregistered, "segment.PutSegmentsReorderHandler")
-	}
-	if o.VariantPutVariantHandler == nil {
-		unregistered = append(unregistered, "variant.PutVariantHandler")
-	}
-	if o.FlagRestoreFlagHandler == nil {
-		unregistered = append(unregistered, "flag.RestoreFlagHandler")
-	}
-	if o.FlagSetFlagEnabledHandler == nil {
-		unregistered = append(unregistered, "flag.SetFlagEnabledHandler")
-	}
-
-	if len(unregistered) > 0 {
-		return fmt.Errorf("missing registration: %s", strings.Join(unregistered, ", "))
-	}
-
-	return nil
-}
+func (o *FlagrAPI) Validate() error { _ = "STUB: not implemented"; return nil }
 
 // ServeErrorFor gets a error handler for a given operation id
 func (o *FlagrAPI) ServeErrorFor(operationID string) func(http.ResponseWriter, *http.Request, error) {
-	return o.ServeError
+	_ = "STUB: not implemented"
+	return nil
+
+	// AuthenticatorsFor gets the authenticators for the specified security schemes
 }
 
-// AuthenticatorsFor gets the authenticators for the specified security schemes
 func (o *FlagrAPI) AuthenticatorsFor(schemes map[string]spec.SecurityScheme) map[string]runtime.Authenticator {
+	_ = "STUB: not implemented"
+
+	// Authorizer returns the registered authorizer
 	return nil
 }
 
-// Authorizer returns the registered authorizer
 func (o *FlagrAPI) Authorizer() runtime.Authorizer {
-	return nil
+	_ = "STUB: not implemented"
+
+	// ConsumersFor gets the consumers for the specified media types.
+	//
+	// MIME type parameters are ignored here.
+	return *new(runtime.Authorizer)
 }
 
-// ConsumersFor gets the consumers for the specified media types.
-//
-// MIME type parameters are ignored here.
 func (o *FlagrAPI) ConsumersFor(mediaTypes []string) map[string]runtime.Consumer {
-	result := make(map[string]runtime.Consumer, len(mediaTypes))
-	for _, mt := range mediaTypes {
-		if mt == "application/json" {
-			result["application/json"] = o.JSONConsumer
-		}
-
-		if c, ok := o.customConsumers[mt]; ok {
-			result[mt] = c
-		}
-	}
-
-	return result
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // ProducersFor gets the producers for the specified media types.
 //
 // MIME type parameters are ignored here.
 func (o *FlagrAPI) ProducersFor(mediaTypes []string) map[string]runtime.Producer {
-	result := make(map[string]runtime.Producer, len(mediaTypes))
-	for _, mt := range mediaTypes {
-		switch mt {
-		case "application/octet-stream":
-			result["application/octet-stream"] = o.BinProducer
-		case "application/json":
-			result["application/json"] = o.JSONProducer
-		}
-
-		if p, ok := o.customProducers[mt]; ok {
-			result[mt] = p
-		}
-	}
-
-	return result
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // HandlerFor gets a http.Handler for the provided operation method and path
 func (o *FlagrAPI) HandlerFor(method, path string) (http.Handler, bool) {
-	if o.handlers == nil {
-		return nil, false
-	}
-	um := strings.ToUpper(method)
-	if _, ok := o.handlers[um]; !ok {
-		return nil, false
-	}
-	if path == "/" {
-		path = ""
-	}
-	h, ok := o.handlers[um][path]
-	return h, ok
+	_ = "STUB: not implemented"
+	return *new(http.Handler), false
 }
 
 // Context returns the middleware context for the flagr API
-func (o *FlagrAPI) Context() *middleware.Context {
-	if o.context == nil {
-		o.context = middleware.NewRoutableContext(o.spec, o, nil)
-	}
-
-	return o.context
-}
+func (o *FlagrAPI) Context() *middleware.Context { _ = "STUB: not implemented"; return nil }
 
 func (o *FlagrAPI) initHandlerCache() {
-	o.Context() // don't care about the result, just that the initialization happened
-	if o.handlers == nil {
-		o.handlers = make(map[string]map[string]http.Handler)
-	}
-
-	if o.handlers["POST"] == nil {
-		o.handlers["POST"] = make(map[string]http.Handler)
-	}
-	o.handlers["POST"]["/flags/{flagID}/segments/{segmentID}/constraints"] = constraint.NewCreateConstraint(o.context, o.ConstraintCreateConstraintHandler)
-	if o.handlers["POST"] == nil {
-		o.handlers["POST"] = make(map[string]http.Handler)
-	}
-	o.handlers["POST"]["/flags"] = flag.NewCreateFlag(o.context, o.FlagCreateFlagHandler)
-	if o.handlers["POST"] == nil {
-		o.handlers["POST"] = make(map[string]http.Handler)
-	}
-	o.handlers["POST"]["/flags/{flagID}/segments"] = segment.NewCreateSegment(o.context, o.SegmentCreateSegmentHandler)
-	if o.handlers["POST"] == nil {
-		o.handlers["POST"] = make(map[string]http.Handler)
-	}
-	o.handlers["POST"]["/flags/{flagID}/tags"] = tag.NewCreateTag(o.context, o.TagCreateTagHandler)
-	if o.handlers["POST"] == nil {
-		o.handlers["POST"] = make(map[string]http.Handler)
-	}
-	o.handlers["POST"]["/flags/{flagID}/variants"] = variant.NewCreateVariant(o.context, o.VariantCreateVariantHandler)
-	if o.handlers["DELETE"] == nil {
-		o.handlers["DELETE"] = make(map[string]http.Handler)
-	}
-	o.handlers["DELETE"]["/flags/{flagID}/segments/{segmentID}/constraints/{constraintID}"] = constraint.NewDeleteConstraint(o.context, o.ConstraintDeleteConstraintHandler)
-	if o.handlers["DELETE"] == nil {
-		o.handlers["DELETE"] = make(map[string]http.Handler)
-	}
-	o.handlers["DELETE"]["/flags/{flagID}"] = flag.NewDeleteFlag(o.context, o.FlagDeleteFlagHandler)
-	if o.handlers["DELETE"] == nil {
-		o.handlers["DELETE"] = make(map[string]http.Handler)
-	}
-	o.handlers["DELETE"]["/flags/{flagID}/segments/{segmentID}"] = segment.NewDeleteSegment(o.context, o.SegmentDeleteSegmentHandler)
-	if o.handlers["DELETE"] == nil {
-		o.handlers["DELETE"] = make(map[string]http.Handler)
-	}
-	o.handlers["DELETE"]["/flags/{flagID}/tags/{tagID}"] = tag.NewDeleteTag(o.context, o.TagDeleteTagHandler)
-	if o.handlers["DELETE"] == nil {
-		o.handlers["DELETE"] = make(map[string]http.Handler)
-	}
-	o.handlers["DELETE"]["/flags/{flagID}/variants/{variantID}"] = variant.NewDeleteVariant(o.context, o.VariantDeleteVariantHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/tags"] = tag.NewFindAllTags(o.context, o.TagFindAllTagsHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/flags/{flagID}/segments/{segmentID}/constraints"] = constraint.NewFindConstraints(o.context, o.ConstraintFindConstraintsHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/flags/{flagID}/segments/{segmentID}/distributions"] = distribution.NewFindDistributions(o.context, o.DistributionFindDistributionsHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/flags"] = flag.NewFindFlags(o.context, o.FlagFindFlagsHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/flags/{flagID}/segments"] = segment.NewFindSegments(o.context, o.SegmentFindSegmentsHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/flags/{flagID}/tags"] = tag.NewFindTags(o.context, o.TagFindTagsHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/flags/{flagID}/variants"] = variant.NewFindVariants(o.context, o.VariantFindVariantsHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/export/eval_cache/json"] = export.NewGetExportEvalCacheJSON(o.context, o.ExportGetExportEvalCacheJSONHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/export/sqlite"] = export.NewGetExportSqlite(o.context, o.ExportGetExportSqliteHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/flags/{flagID}"] = flag.NewGetFlag(o.context, o.FlagGetFlagHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/flags/entity_types"] = flag.NewGetFlagEntityTypes(o.context, o.FlagGetFlagEntityTypesHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/flags/{flagID}/snapshots"] = flag.NewGetFlagSnapshots(o.context, o.FlagGetFlagSnapshotsHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/health"] = health.NewGetHealth(o.context, o.HealthGetHealthHandler)
-	if o.handlers["POST"] == nil {
-		o.handlers["POST"] = make(map[string]http.Handler)
-	}
-	o.handlers["POST"]["/evaluation"] = evaluation.NewPostEvaluation(o.context, o.EvaluationPostEvaluationHandler)
-	if o.handlers["POST"] == nil {
-		o.handlers["POST"] = make(map[string]http.Handler)
-	}
-	o.handlers["POST"]["/evaluation/batch"] = evaluation.NewPostEvaluationBatch(o.context, o.EvaluationPostEvaluationBatchHandler)
-	if o.handlers["PUT"] == nil {
-		o.handlers["PUT"] = make(map[string]http.Handler)
-	}
-	o.handlers["PUT"]["/flags/{flagID}/segments/{segmentID}/constraints/{constraintID}"] = constraint.NewPutConstraint(o.context, o.ConstraintPutConstraintHandler)
-	if o.handlers["PUT"] == nil {
-		o.handlers["PUT"] = make(map[string]http.Handler)
-	}
-	o.handlers["PUT"]["/flags/{flagID}/segments/{segmentID}/distributions"] = distribution.NewPutDistributions(o.context, o.DistributionPutDistributionsHandler)
-	if o.handlers["PUT"] == nil {
-		o.handlers["PUT"] = make(map[string]http.Handler)
-	}
-	o.handlers["PUT"]["/flags/{flagID}"] = flag.NewPutFlag(o.context, o.FlagPutFlagHandler)
-	if o.handlers["PUT"] == nil {
-		o.handlers["PUT"] = make(map[string]http.Handler)
-	}
-	o.handlers["PUT"]["/flags/{flagID}/segments/{segmentID}"] = segment.NewPutSegment(o.context, o.SegmentPutSegmentHandler)
-	if o.handlers["PUT"] == nil {
-		o.handlers["PUT"] = make(map[string]http.Handler)
-	}
-	o.handlers["PUT"]["/flags/{flagID}/segments/reorder"] = segment.NewPutSegmentsReorder(o.context, o.SegmentPutSegmentsReorderHandler)
-	if o.handlers["PUT"] == nil {
-		o.handlers["PUT"] = make(map[string]http.Handler)
-	}
-	o.handlers["PUT"]["/flags/{flagID}/variants/{variantID}"] = variant.NewPutVariant(o.context, o.VariantPutVariantHandler)
-	if o.handlers["PUT"] == nil {
-		o.handlers["PUT"] = make(map[string]http.Handler)
-	}
-	o.handlers["PUT"]["/flags/{flagID}/restore"] = flag.NewRestoreFlag(o.context, o.FlagRestoreFlagHandler)
-	if o.handlers["PUT"] == nil {
-		o.handlers["PUT"] = make(map[string]http.Handler)
-	}
-	o.handlers["PUT"]["/flags/{flagID}/enabled"] = flag.NewSetFlagEnabled(o.context, o.FlagSetFlagEnabledHandler)
+	_ = "STUB: not implemented"
+	// don't care about the result, just that the initialization happened
+	return
 }
 
 // Serve creates a http handler to serve the API over HTTP
 // can be used directly in http.ListenAndServe(":8000", api.Serve(nil))
 func (o *FlagrAPI) Serve(builder middleware.Builder) http.Handler {
-	o.Init()
-
-	if o.Middleware != nil {
-		return o.Middleware(builder)
-	}
-	if o.useSwaggerUI {
-		return o.context.APIHandlerSwaggerUI(builder)
-	}
-	return o.context.APIHandler(builder)
+	_ = "STUB: not implemented"
+	return *new(http.Handler)
 }
 
 // Init allows you to just initialize the handler cache, you can then recompose the middleware as you see fit
-func (o *FlagrAPI) Init() {
-	if len(o.handlers) == 0 {
-		o.initHandlerCache()
-	}
-}
+func (o *FlagrAPI) Init() { _ = "STUB: not implemented"; return }
 
 // RegisterConsumer allows you to add (or override) a consumer for a media type.
 func (o *FlagrAPI) RegisterConsumer(mediaType string, consumer runtime.Consumer) {
-	o.customConsumers[mediaType] = consumer
+	_ = "STUB: not implemented"
+	return
 }
 
 // RegisterProducer allows you to add (or override) a producer for a media type.
 func (o *FlagrAPI) RegisterProducer(mediaType string, producer runtime.Producer) {
-	o.customProducers[mediaType] = producer
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMiddlewareFor adds a http middleware to existing handler
 func (o *FlagrAPI) AddMiddlewareFor(method, path string, builder middleware.Builder) {
-	um := strings.ToUpper(method)
-	if path == "/" {
-		path = ""
-	}
-	o.Init()
-	if h, ok := o.handlers[um][path]; ok {
-		o.handlers[um][path] = builder(h)
-	}
+	_ = "STUB: not implemented"
+	return
 }

@@ -1,12 +1,9 @@
 package handler
 
 import (
-	"encoding/base64"
-
 	"encoding/json"
 
 	"github.com/brandur/simplebox"
-	"github.com/openflagr/flagr/pkg/util"
 	"github.com/openflagr/flagr/swagger_gen/models"
 )
 
@@ -17,16 +14,13 @@ type dataRecordEncryptor interface {
 type simpleboxEncryptor struct{ key [simplebox.KeySize]byte }
 
 func (se *simpleboxEncryptor) Encrypt(b []byte) (string, error) {
-	s := base64.StdEncoding.EncodeToString(
-		simplebox.NewFromSecretKey(&se.key).Encrypt(b),
-	)
-	return s, nil
+	_ = "STUB: not implemented"
+	return "", nil
 }
 
 func newSimpleboxEncryptor(k string) dataRecordEncryptor {
-	key := [simplebox.KeySize]byte{}
-	copy(key[:], k)
-	return &simpleboxEncryptor{key: key}
+	_ = "STUB: not implemented"
+	return *new(dataRecordEncryptor)
 }
 
 const (
@@ -57,43 +51,12 @@ type DataRecordFrame struct {
 
 // MarshalJSON defines the behavior of MarshalJSON for DataRecordFrame
 func (drf *DataRecordFrame) MarshalJSON() ([]byte, error) {
-	payload, err := drf.evalResult.MarshalBinary()
-	if err != nil {
-		return nil, err
-	}
-
-	if drf.options.FrameOutputMode == frameOutputModePayloadRawJSON {
-		return json.Marshal(&rawPayload{
-			Payload: payload,
-		})
-	}
-
-	if drf.options.Encrypted && drf.options.Encryptor != nil {
-		encryptedPayload, err := drf.options.Encryptor.Encrypt(payload)
-		if err != nil {
-			return nil, err
-		}
-		return json.Marshal(&stringPayload{
-			Payload:   encryptedPayload,
-			Encrypted: true,
-		})
-	}
-
-	return json.Marshal(&stringPayload{
-		Payload:   string(payload),
-		Encrypted: false,
-	})
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // GetPartitionKey gets the partition key from entityID
-func (drf *DataRecordFrame) GetPartitionKey() string {
-	if drf.evalResult.EvalContext == nil {
-		return ""
-	}
-	return util.SafeString(drf.evalResult.EvalContext.EntityID)
-}
+func (drf *DataRecordFrame) GetPartitionKey() string { _ = "STUB: not implemented"; return "" }
 
 // Output sets the payload using its input and returns the json marshal bytes
-func (drf *DataRecordFrame) Output() ([]byte, error) {
-	return json.Marshal(drf)
-}
+func (drf *DataRecordFrame) Output() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }

@@ -8,25 +8,24 @@ package tag
 import (
 	"net/http"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // NewFindTagsParams creates a new FindTagsParams object
 //
 // There are no default values defined in the spec.
 func NewFindTagsParams() FindTagsParams {
+	_ = "STUB: not implemented"
+	return *
 
-	return FindTagsParams{}
+	// FindTagsParams contains all the bound params for the find tags operation
+	// typically these are obtained from a http.Request
+	//
+	// swagger:parameters findTags
+	new(FindTagsParams)
 }
 
-// FindTagsParams contains all the bound params for the find tags operation
-// typically these are obtained from a http.Request
-//
-// swagger:parameters findTags
 type FindTagsParams struct {
 	// HTTP Request Object
 	HTTPRequest *http.Request `json:"-"`
@@ -44,49 +43,21 @@ type FindTagsParams struct {
 //
 // To ensure default values, the struct must have been initialized with NewFindTagsParams() beforehand.
 func (o *FindTagsParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
-	var res []error
-
-	o.HTTPRequest = r
-
-	rFlagID, rhkFlagID, _ := route.Params.GetOK("flagID")
-	if err := o.bindFlagID(rFlagID, rhkFlagID, route.Formats); err != nil {
-		res = append(res, err)
-	}
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // bindFlagID binds and validates parameter FlagID from path.
 func (o *FindTagsParams) bindFlagID(rawData []string, hasKey bool, formats strfmt.Registry) error {
-	var raw string
-	if len(rawData) > 0 {
-		raw = rawData[len(rawData)-1]
-	}
-
-	// Required: true
-	// Parameter is provided by construction from the route
-
-	value, err := swag.ConvertInt64(raw)
-	if err != nil {
-		return errors.InvalidType("flagID", "path", "int64", raw)
-	}
-	o.FlagID = value
-
-	if err := o.validateFlagID(formats); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// Required: true
+// Parameter is provided by construction from the route
+
 // validateFlagID carries out validations for parameter FlagID
 func (o *FindTagsParams) validateFlagID(formats strfmt.Registry) error {
-
-	if err := validate.MinimumInt("flagID", "path", o.FlagID, 1, false); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }

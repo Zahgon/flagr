@@ -30,33 +30,24 @@ type CreateTagOK struct {
 }
 
 // NewCreateTagOK creates CreateTagOK with default headers values
-func NewCreateTagOK() *CreateTagOK {
-
-	return &CreateTagOK{}
-}
+func NewCreateTagOK() *CreateTagOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the create tag o k response
 func (o *CreateTagOK) WithPayload(payload *models.Tag) *CreateTagOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the create tag o k response
-func (o *CreateTagOK) SetPayload(payload *models.Tag) {
-	o.Payload = payload
-}
+func (o *CreateTagOK) SetPayload(payload *models.Tag) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *CreateTagOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 CreateTagDefault generic error response
@@ -73,46 +64,30 @@ type CreateTagDefault struct {
 }
 
 // NewCreateTagDefault creates CreateTagDefault with default headers values
-func NewCreateTagDefault(code int) *CreateTagDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &CreateTagDefault{
-		_statusCode: code,
-	}
-}
+func NewCreateTagDefault(code int) *CreateTagDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the create tag default response
 func (o *CreateTagDefault) WithStatusCode(code int) *CreateTagDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the create tag default response
-func (o *CreateTagDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *CreateTagDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the create tag default response
 func (o *CreateTagDefault) WithPayload(payload *models.Error) *CreateTagDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the create tag default response
-func (o *CreateTagDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *CreateTagDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *CreateTagDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

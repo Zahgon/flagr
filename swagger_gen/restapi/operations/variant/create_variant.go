@@ -16,17 +16,20 @@ type CreateVariantHandlerFunc func(CreateVariantParams) middleware.Responder
 
 // Handle executing the request and returning a response
 func (fn CreateVariantHandlerFunc) Handle(params CreateVariantParams) middleware.Responder {
-	return fn(params)
+	_ = "STUB: not implemented"
+
+	// CreateVariantHandler interface for that can handle valid create variant params
+	return *new(middleware.Responder)
 }
 
-// CreateVariantHandler interface for that can handle valid create variant params
 type CreateVariantHandler interface {
 	Handle(CreateVariantParams) middleware.Responder
 }
 
 // NewCreateVariant creates a new http.Handler for the create variant operation
 func NewCreateVariant(ctx *middleware.Context, handler CreateVariantHandler) *CreateVariant {
-	return &CreateVariant{Context: ctx, Handler: handler}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 /*
@@ -40,18 +43,10 @@ type CreateVariant struct {
 }
 
 func (o *CreateVariant) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
-	route, rCtx, _ := o.Context.RouteInfo(r)
-	if rCtx != nil {
-		*r = *rCtx
-	}
-	var Params = NewCreateVariantParams()
-	if err := o.Context.BindValidRequest(r, route, &Params); err != nil { // bind params
-		o.Context.Respond(rw, r, route.Produces, route, err)
-		return
-	}
-
-	res := o.Handler.Handle(Params) // actually handle the request
-
-	o.Context.Respond(rw, r, route.Produces, route, res)
-
+	_ = "STUB: not implemented"
+	return
 }
+
+// bind params
+
+// actually handle the request

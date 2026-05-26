@@ -30,33 +30,28 @@ type CreateConstraintOK struct {
 }
 
 // NewCreateConstraintOK creates CreateConstraintOK with default headers values
-func NewCreateConstraintOK() *CreateConstraintOK {
-
-	return &CreateConstraintOK{}
-}
+func NewCreateConstraintOK() *CreateConstraintOK { _ = "STUB: not implemented"; return nil }
 
 // WithPayload adds the payload to the create constraint o k response
 func (o *CreateConstraintOK) WithPayload(payload *models.Constraint) *CreateConstraintOK {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the create constraint o k response
 func (o *CreateConstraintOK) SetPayload(payload *models.Constraint) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *CreateConstraintOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(200)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this
 
 /*
 CreateConstraintDefault generic error response
@@ -74,45 +69,36 @@ type CreateConstraintDefault struct {
 
 // NewCreateConstraintDefault creates CreateConstraintDefault with default headers values
 func NewCreateConstraintDefault(code int) *CreateConstraintDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &CreateConstraintDefault{
-		_statusCode: code,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // WithStatusCode adds the status to the create constraint default response
 func (o *CreateConstraintDefault) WithStatusCode(code int) *CreateConstraintDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the create constraint default response
-func (o *CreateConstraintDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *CreateConstraintDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the create constraint default response
 func (o *CreateConstraintDefault) WithPayload(payload *models.Error) *CreateConstraintDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the create constraint default response
 func (o *CreateConstraintDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
+	_ = "STUB: not implemented"
+	return
+
+	// WriteResponse to the client
 }
 
-// WriteResponse to the client
 func (o *CreateConstraintDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

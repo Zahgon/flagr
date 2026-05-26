@@ -6,12 +6,7 @@ package tag
 // Editing this file might prove futile when you re-run the generate command
 
 import (
-	"errors"
 	"net/url"
-	golangswaggerpaths "path"
-	"strings"
-
-	"github.com/go-openapi/swag"
 )
 
 // FindTagsURL generates an URL for the find tags operation
@@ -26,76 +21,31 @@ type FindTagsURL struct {
 // WithBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
-func (o *FindTagsURL) WithBasePath(bp string) *FindTagsURL {
-	o.SetBasePath(bp)
-	return o
-}
+func (o *FindTagsURL) WithBasePath(bp string) *FindTagsURL { _ = "STUB: not implemented"; return nil }
 
 // SetBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
 func (o *FindTagsURL) SetBasePath(bp string) {
-	o._basePath = bp
+	_ = "STUB: not implemented"
+
+	// Build a url path and query string
+	return
 }
 
-// Build a url path and query string
-func (o *FindTagsURL) Build() (*url.URL, error) {
-	var _result url.URL
-
-	var _path = "/flags/{flagID}/tags"
-
-	flagID := swag.FormatInt64(o.FlagID)
-	if flagID != "" {
-		_path = strings.ReplaceAll(_path, "{flagID}", flagID)
-	} else {
-		return nil, errors.New("flagId is required on FindTagsURL")
-	}
-
-	_basePath := o._basePath
-	if _basePath == "" {
-		_basePath = "/api/v1"
-	}
-	_result.Path = golangswaggerpaths.Join(_basePath, _path)
-
-	return &_result, nil
-}
+func (o *FindTagsURL) Build() (*url.URL, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // Must is a helper function to panic when the url builder returns an error
-func (o *FindTagsURL) Must(u *url.URL, err error) *url.URL {
-	if err != nil {
-		panic(err)
-	}
-	if u == nil {
-		panic("url can't be nil")
-	}
-	return u
-}
+func (o *FindTagsURL) Must(u *url.URL, err error) *url.URL { _ = "STUB: not implemented"; return nil }
 
 // String returns the string representation of the path with query string
-func (o *FindTagsURL) String() string {
-	return o.Must(o.Build()).String()
-}
+func (o *FindTagsURL) String() string { _ = "STUB: not implemented"; return "" }
 
 // BuildFull builds a full url with scheme, host, path and query string
 func (o *FindTagsURL) BuildFull(scheme, host string) (*url.URL, error) {
-	if scheme == "" {
-		return nil, errors.New("scheme is required for a full url on FindTagsURL")
-	}
-	if host == "" {
-		return nil, errors.New("host is required for a full url on FindTagsURL")
-	}
-
-	base, err := o.Build()
-	if err != nil {
-		return nil, err
-	}
-
-	base.Scheme = scheme
-	base.Host = host
-	return base, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // StringFull returns the string representation of a complete url
-func (o *FindTagsURL) StringFull(scheme, host string) string {
-	return o.Must(o.BuildFull(scheme, host)).String()
-}
+func (o *FindTagsURL) StringFull(scheme, host string) string { _ = "STUB: not implemented"; return "" }

@@ -4,17 +4,9 @@ package restapi
 
 import (
 	"crypto/tls"
-	"encoding/json"
-	"io"
 	"net/http"
 
-	"github.com/openflagr/flagr/pkg/config"
-	"github.com/openflagr/flagr/pkg/handler"
 	"github.com/openflagr/flagr/swagger_gen/restapi/operations"
-	"github.com/sirupsen/logrus"
-
-	"github.com/go-openapi/errors"
-	"github.com/go-openapi/runtime"
 )
 
 // This file is safe to edit. Once it exists it will not be overwritten
@@ -22,35 +14,21 @@ import (
 //go:generate swagger generate server --target ../../swagger_gen --name Flagr --spec ../../docs/api_docs/bundle.yaml
 
 func configureFlags(api *operations.FlagrAPI) {
+	_ = "STUB: not implemented"
 	// api.CommandLineOptionsGroups = []swag.CommandLineOptionsGroup{ ... }
+	return
 }
 
 func configureAPI(api *operations.FlagrAPI) http.Handler {
-	api.ServeError = errors.ServeError
-
-	api.JSONConsumer = runtime.ConsumerFunc(func(reader io.Reader, data interface{}) error {
-		dec := json.NewDecoder(reader)
-		dec.UseNumber()
-		return dec.Decode(data)
-	})
-
-	api.JSONProducer = runtime.ProducerFunc(func(writer io.Writer, data interface{}) error {
-		enc := json.NewEncoder(writer)
-		enc.SetEscapeHTML(false)
-		return enc.Encode(data)
-	})
-	api.BinProducer = runtime.ByteStreamProducer()
-
-	api.Logger = logrus.Infof
-	api.ServerShutdown = config.ServerShutdown
-
-	handler.Setup(api)
-	return setupGlobalMiddleware(api.Serve(setupMiddlewares))
+	_ = "STUB: not implemented"
+	return *new(http.Handler)
 }
 
 // The TLS configuration before HTTPS server starts.
 func configureTLS(tlsConfig *tls.Config) {
+	_ = "STUB: not implemented"
 	// Make all necessary changes to the TLS configuration here.
+	return
 }
 
 // As soon as server is initialized but not run yet, this function will be called.
@@ -58,16 +36,22 @@ func configureTLS(tlsConfig *tls.Config) {
 // This function can be called multiple times, depending on the number of serving schemes.
 // scheme value will be set accordingly: "http", "https" or "unix"
 func configureServer(s *http.Server, scheme, addr string) {
+	_ = "STUB: not implemented"
+
+	// The middleware configuration is for the handler executors. These do not apply to the swagger.json document.
+	// The middleware executes after routing but before authentication, binding and validation
+	return
 }
 
-// The middleware configuration is for the handler executors. These do not apply to the swagger.json document.
-// The middleware executes after routing but before authentication, binding and validation
 func setupMiddlewares(handler http.Handler) http.Handler {
-	return handler
+	_ = "STUB: not implemented"
+
+	// The middleware configuration happens before anything, this middleware also applies to serving the swagger.json document.
+	// So this is a good place to plug in a panic handling middleware, logging and metrics
+	return *new(http.Handler)
 }
 
-// The middleware configuration happens before anything, this middleware also applies to serving the swagger.json document.
-// So this is a good place to plug in a panic handling middleware, logging and metrics
 func setupGlobalMiddleware(handler http.Handler) http.Handler {
-	return config.SetupGlobalMiddleware(handler)
+	_ = "STUB: not implemented"
+	return *new(http.Handler)
 }

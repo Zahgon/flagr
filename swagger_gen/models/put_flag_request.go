@@ -8,10 +8,7 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // PutFlagRequest put flag request
@@ -41,49 +38,29 @@ type PutFlagRequest struct {
 
 // Validate validates this put flag request
 func (m *PutFlagRequest) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *PutFlagRequest) validateDescription(formats strfmt.Registry) error {
-	if swag.IsZero(m.Description) { // not required
-		return nil
-	}
-
-	if err := validate.MinLength("description", "body", *m.Description, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// not required
 
 // ContextValidate validates this put flag request based on context it is used
 func (m *PutFlagRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	_ = "STUB: not implemented"
+
+	// MarshalBinary interface implementation
 	return nil
 }
 
-// MarshalBinary interface implementation
 func (m *PutFlagRequest) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UnmarshalBinary interface implementation
-func (m *PutFlagRequest) UnmarshalBinary(b []byte) error {
-	var res PutFlagRequest
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *PutFlagRequest) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }

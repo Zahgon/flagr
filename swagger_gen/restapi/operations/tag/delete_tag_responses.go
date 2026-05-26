@@ -25,18 +25,15 @@ type DeleteTagOK struct {
 }
 
 // NewDeleteTagOK creates DeleteTagOK with default headers values
-func NewDeleteTagOK() *DeleteTagOK {
-
-	return &DeleteTagOK{}
-}
+func NewDeleteTagOK() *DeleteTagOK { _ = "STUB: not implemented"; return nil }
 
 // WriteResponse to the client
 func (o *DeleteTagOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.Header().Del(runtime.HeaderContentType) // Remove Content-Type on empty responses
-
-	rw.WriteHeader(200)
+	_ = "STUB: not implemented"
+	return
 }
+
+// Remove Content-Type on empty responses
 
 /*
 DeleteTagDefault generic error response
@@ -53,46 +50,30 @@ type DeleteTagDefault struct {
 }
 
 // NewDeleteTagDefault creates DeleteTagDefault with default headers values
-func NewDeleteTagDefault(code int) *DeleteTagDefault {
-	if code <= 0 {
-		code = 500
-	}
-
-	return &DeleteTagDefault{
-		_statusCode: code,
-	}
-}
+func NewDeleteTagDefault(code int) *DeleteTagDefault { _ = "STUB: not implemented"; return nil }
 
 // WithStatusCode adds the status to the delete tag default response
 func (o *DeleteTagDefault) WithStatusCode(code int) *DeleteTagDefault {
-	o._statusCode = code
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetStatusCode sets the status to the delete tag default response
-func (o *DeleteTagDefault) SetStatusCode(code int) {
-	o._statusCode = code
-}
+func (o *DeleteTagDefault) SetStatusCode(code int) { _ = "STUB: not implemented"; return }
 
 // WithPayload adds the payload to the delete tag default response
 func (o *DeleteTagDefault) WithPayload(payload *models.Error) *DeleteTagDefault {
-	o.Payload = payload
-	return o
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SetPayload sets the payload to the delete tag default response
-func (o *DeleteTagDefault) SetPayload(payload *models.Error) {
-	o.Payload = payload
-}
+func (o *DeleteTagDefault) SetPayload(payload *models.Error) { _ = "STUB: not implemented"; return }
 
 // WriteResponse to the client
 func (o *DeleteTagDefault) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
-
-	rw.WriteHeader(o._statusCode)
-	if o.Payload != nil {
-		payload := o.Payload
-		if err := producer.Produce(rw, payload); err != nil {
-			panic(err) // let the recovery middleware deal with this
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// let the recovery middleware deal with this

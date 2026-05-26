@@ -11,9 +11,9 @@ import (
 )
 
 type pubsubRecorder struct {
-	producer *pubsub.Client
+	producer  *pubsub.Client
 	publisher *pubsub.Publisher
-	options  DataRecordFrameOptions
+	options   DataRecordFrameOptions
 }
 
 var (
@@ -34,7 +34,7 @@ var NewPubsubRecorder = func() DataRecorder {
 	}
 
 	return &pubsubRecorder{
-		producer: client,
+		producer:  client,
 		publisher: client.Publisher(config.Config.RecorderPubsubTopicName),
 		options: DataRecordFrameOptions{
 			Encrypted:       false, // not implemented yet
@@ -44,29 +44,8 @@ var NewPubsubRecorder = func() DataRecorder {
 }
 
 func (p *pubsubRecorder) NewDataRecordFrame(r models.EvalResult) DataRecordFrame {
-	return DataRecordFrame{
-		evalResult: r,
-		options:    p.options,
-	}
+	_ = "STUB: not implemented"
+	return *new(DataRecordFrame)
 }
 
-func (p *pubsubRecorder) AsyncRecord(r models.EvalResult) {
-	frame := p.NewDataRecordFrame(r)
-	output, err := frame.Output()
-	if err != nil {
-		logrus.WithField("err", err).Error("failed to generate data record frame for pubsub recorder")
-		return
-	}
-	ctx := context.Background()
-	res := p.publisher.Publish(ctx, &pubsub.Message{Data: output})
-	if config.Config.RecorderPubsubVerbose {
-		go func() {
-			ctx, cancel := context.WithTimeout(ctx, config.Config.RecorderPubsubVerboseCancelTimeout)
-			defer cancel()
-			id, err := res.Get(ctx)
-			if err != nil {
-				logrus.WithFields(logrus.Fields{"pubsub_error": err, "id": id}).Error("error pushing to pubsub")
-			}
-		}()
-	}
-}
+func (p *pubsubRecorder) AsyncRecord(r models.EvalResult) { _ = "STUB: not implemented"; return }

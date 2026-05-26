@@ -8,10 +8,7 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // CreateTagRequest create tag request
@@ -27,50 +24,27 @@ type CreateTagRequest struct {
 
 // Validate validates this create tag request
 func (m *CreateTagRequest) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateValue(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func (m *CreateTagRequest) validateValue(formats strfmt.Registry) error {
-
-	if err := validate.Required("value", "body", m.Value); err != nil {
-		return err
-	}
-
-	if err := validate.MinLength("value", "body", *m.Value, 1); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // ContextValidate validates this create tag request based on context it is used
 func (m *CreateTagRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	_ = "STUB: not implemented"
+
+	// MarshalBinary interface implementation
 	return nil
 }
 
-// MarshalBinary interface implementation
 func (m *CreateTagRequest) MarshalBinary() ([]byte, error) {
-	if m == nil {
-		return nil, nil
-	}
-	return swag.WriteJSON(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UnmarshalBinary interface implementation
-func (m *CreateTagRequest) UnmarshalBinary(b []byte) error {
-	var res CreateTagRequest
-	if err := swag.ReadJSON(b, &res); err != nil {
-		return err
-	}
-	*m = res
-	return nil
-}
+func (m *CreateTagRequest) UnmarshalBinary(b []byte) error { _ = "STUB: not implemented"; return nil }
